@@ -14,8 +14,8 @@ export function About() {
   return (
     <section id="sobre" className="bg-canvas py-20 text-navy sm:py-24 lg:py-28">
       <Container>
-        <div data-reveal className="grid gap-0 border border-navy/20 bg-paper lg:grid-cols-[0.92fr_1.08fr]">
-          <div className="relative min-h-[400px] overflow-hidden sm:min-h-[460px] lg:m-8 lg:h-[560px] lg:min-h-0 lg:self-center xl:m-10">
+        <div data-reveal className="interactive-card grid gap-0 overflow-hidden rounded-[26px] border border-navy/20 bg-paper shadow-[0_22px_70px_rgba(0,20,42,.1)] lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="relative min-h-[360px] overflow-hidden sm:min-h-[420px] lg:m-8 lg:h-[470px] lg:min-h-0 lg:self-center lg:rounded-[18px] xl:m-10">
             <Image src="/images/optimized/639311282FIMI0026 (3).webp" alt="Equipe técnica da Solar Energy em campo" fill sizes="(min-width: 1280px) 31vw, (min-width: 1024px) 36vw, 100vw" className="object-cover object-[52%_50%]" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/95 to-transparent px-6 pb-7 pt-28 text-white sm:px-9">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-green">Registro de campo</p>

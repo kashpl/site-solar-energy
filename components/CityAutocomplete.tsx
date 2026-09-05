@@ -18,7 +18,7 @@ type CityAutocompleteProps = {
 };
 
 const fieldClass =
-  "w-full rounded-md border border-white/[0.15] bg-white/[0.08] px-4 py-3 text-white outline-none transition duration-300 placeholder:text-white/40 focus:border-solar-green focus:bg-white/[0.12] focus:shadow-[0_0_0_4px_rgba(0,208,132,0.12)]";
+  "w-full rounded-xl border border-white/[0.15] bg-white/[0.08] px-4 py-3 text-white outline-none transition-[border-color,background-color,box-shadow] duration-200 placeholder:text-white/40 focus:border-solar-green focus:bg-white/[0.12] focus:shadow-[0_0_0_4px_rgba(53,185,87,0.13)]";
 
 export function CityAutocomplete({
   label,
@@ -101,7 +101,7 @@ export function CityAutocomplete({
         <div
           id={listboxId}
           role="listbox"
-          className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-40 overflow-hidden rounded-md border border-white/[0.16] bg-[#002c66] p-1 shadow-[0_20px_60px_rgba(0,0,0,0.38)]"
+          className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-40 overflow-hidden rounded-xl border border-white/[0.16] bg-[#002c66] p-1.5 shadow-[0_20px_60px_rgba(0,0,0,0.38)]"
         >
           {suggestions.map((city, index) => (
             <button
@@ -114,7 +114,7 @@ export function CityAutocomplete({
                 selectCity(city);
               }}
               className={cn(
-                "flex w-full items-center justify-between rounded-md px-3 py-2.5 text-left text-sm font-semibold text-gray-dark transition hover:bg-solar-green/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solar-gold",
+                "flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-sm font-semibold text-gray-dark transition hover:bg-solar-green/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solar-gold",
                 index === activeIndex && "bg-solar-green/10 text-white"
               )}
             >

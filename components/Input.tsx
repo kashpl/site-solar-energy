@@ -39,7 +39,7 @@ function FieldShell({ label, error, icon: Icon, children }: FieldShellProps) {
 }
 
 const fieldClass =
-  "w-full rounded-md border border-white/[0.15] bg-white/[0.08] px-4 py-3 text-white outline-none transition duration-300 placeholder:text-white/40 focus:border-solar-green focus:bg-white/[0.12] focus:shadow-[0_0_0_4px_rgba(0,208,132,0.12)]";
+  "w-full rounded-xl border border-white/[0.15] bg-white/[0.08] px-4 py-3 text-white outline-none transition-[border-color,background-color,box-shadow] duration-200 placeholder:text-white/40 focus:border-solar-green focus:bg-white/[0.12] focus:shadow-[0_0_0_4px_rgba(53,185,87,0.13)]";
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string;

@@ -27,14 +27,14 @@ export function ProjectExplorer() {
   };
 
   return (
-    <div className="project-explorer grid overflow-hidden border border-white/14 bg-[#071421] lg:grid-cols-[1.48fr_.72fr]">
+    <div className="project-explorer interactive-card grid overflow-hidden rounded-[26px] border border-white/14 bg-[#071421] shadow-[0_26px_80px_rgba(0,0,0,.28)] lg:grid-cols-[1.48fr_.72fr]">
       <div id={`${baseId}-panel`} role="tabpanel" aria-labelledby={`${baseId}-tab-${activeIndex}`} className="relative min-h-[430px] overflow-hidden sm:min-h-[560px]">
         <div key={active.slug} className="project-media-enter absolute inset-0">
           <Image src={active.image} alt={`${active.title} em ${active.location}`} fill sizes="(min-width:1024px) 70vw, 100vw" className="object-cover" style={{ objectPosition: active.objectPosition }} priority={activeIndex === 3} />
         </div>
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,8,18,.05),rgba(2,8,18,.08)_45%,rgba(2,8,18,.94))]" />
-        <div className="absolute left-5 top-5 flex items-center gap-2 bg-[#020812]/78 px-3 py-2 text-[0.64rem] font-black uppercase tracking-[0.16em] text-white/78 backdrop-blur-md">
-          <span className="h-2 w-2 rounded-full" style={{ backgroundColor: accentColors[activeIndex] }} /> {active.category} · {active.status}
+        <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/14 bg-[#020812]/78 px-3 py-2 text-[0.64rem] font-black uppercase tracking-[0.16em] text-white/78 backdrop-blur-md">
+          <span className="status-pulse h-2 w-2 rounded-full" style={{ backgroundColor: accentColors[activeIndex], color: accentColors[activeIndex] }} /> {active.category} · {active.status}
         </div>
         <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-10">
           <p className="text-xs font-black uppercase tracking-[0.18em]" style={{ color: accentColors[activeIndex] }}>Projeto 0{activeIndex + 1}</p>

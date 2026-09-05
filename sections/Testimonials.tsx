@@ -18,7 +18,7 @@ export function Testimonials() {
         </div>
         <div className="mt-12 grid gap-4 md:grid-cols-2">
           {testimonials.slice(1).map((testimonial, index) => (
-            <figure key={testimonial.name} data-reveal style={{ "--reveal-delay": `${index * 70}ms` } as React.CSSProperties} className="border border-navy/15 bg-paper p-7 sm:p-9">
+            <figure key={testimonial.name} data-reveal style={{ "--reveal-delay": `${index * 70}ms` } as React.CSSProperties} className="interactive-card rounded-[22px] border border-navy/15 bg-paper p-7 shadow-[0_16px_46px_rgba(0,20,42,.06)] sm:p-9">
               <span aria-hidden className="block h-1 w-12" style={{ backgroundColor: index === 0 ? "#1479d8" : "#35b957" }} />
               <blockquote className="mt-7 text-lg font-semibold leading-8">“{testimonial.quote}”</blockquote>
               <figcaption className="mt-7 text-xs font-bold uppercase tracking-[0.1em] text-ink-muted">{testimonial.name} · {testimonial.detail}</figcaption>

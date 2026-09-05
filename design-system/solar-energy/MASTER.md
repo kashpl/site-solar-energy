@@ -10,7 +10,7 @@
 - Trilhas espectrais da logo aparecem apenas em momentos institucionais; nunca cruzam conteúdo de leitura.
 - Seções claras usam papel quente e amplo contraste, sem grid técnico decorativo.
 - Seções escuras abrigam projetos, simulador, contato e encerramento.
-- Raio de borda entre 0 e 4px; profundidade vem de contraste, imagem e sobreposição funcional.
+- Superfícies principais usam raios de 20–26px; controles e ações usam formato cápsula. Divisores internos preservam o rigor técnico.
 - Títulos fortes, mas limitados a aproximadamente 64px no desktop para preservar proporção.
 
 ## Cores
@@ -38,17 +38,18 @@
 
 ## Interação e movimento
 
-- Botões: feedback de pressão em 150ms.
+- Botões: feedback de pressão em 150ms, brilho curto no hover e seta com deslocamento mínimo.
+- Navegação: cápsula flutuante com ícones, estado ativo luminoso e faixa espectral lenta no topo.
 - Hero: trilhas da marca surgem uma vez e recebem pulsos finos em movimento contínuo, lento e dessincronizado; as curvas permanecem atrás do conteúdo.
 - Seções: revelação única e discreta ao entrar na viewport, combinando opacidade e deslocamento vertical curto.
 - Projetos: tabs acessíveis com transição de imagem por opacidade, escala e recorte em 320ms.
 - Imagens: hover máximo de 1.018, somente em ponteiro preciso.
-- Todo movimento é reduzido por `prefers-reduced-motion`.
+- `prefers-reduced-motion` remove deslocamentos de conteúdo, mas preserva fades curtos e o movimento ambiente das trilhas em velocidade muito menor.
 
 ## Padrões proibidos
 
 - Linha decorativa atravessando título, descrição ou CTA.
 - Fundo verde neon em área extensa.
 - Grid técnico sem função, gráficos falsos e cartões repetidos de startup.
-- Glassmorphism, parallax pesado e animação infinita em conteúdo funcional; a única exceção é o pulso ambiente das trilhas do hero.
+- Glassmorphism excessivo, parallax pesado e animação infinita em conteúdo funcional; as exceções são o pulso ambiente das trilhas do hero e a faixa espectral sutil da navegação.
 - Tipografia gigante que exige múltiplas dobras para comunicar uma ideia.

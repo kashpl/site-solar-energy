@@ -23,7 +23,7 @@ function BrandTrails() {
 
 export function Hero() {
   return (
-    <section id="inicio" className="brand-aurora relative isolate overflow-hidden pt-[76px] text-white">
+    <section id="inicio" className="brand-aurora relative isolate overflow-hidden pt-[96px] text-white">
       <BrandTrails />
       <Container className="relative z-10">
         <div className="grid min-h-[700px] items-center gap-12 py-14 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16 lg:py-16">
@@ -52,13 +52,13 @@ export function Hero() {
           </div>
 
           <div className="hero-project-reveal relative mx-auto w-full max-w-[720px] lg:mx-0">
-            <div aria-hidden className="absolute -left-4 -top-4 h-24 w-24 border-l border-t border-solar-blue/70" />
-            <div aria-hidden className="absolute -bottom-4 -right-4 h-28 w-28 border-b border-r border-solar-gold/70" />
-            <div className="relative aspect-[0.82] overflow-hidden border border-white/18 bg-[#07182b] shadow-[0_30px_80px_rgba(0,0,0,.42)] sm:aspect-[1.22] sm:min-h-[430px]">
+            <div aria-hidden className="absolute -left-3 -top-3 h-24 w-24 rounded-tl-[30px] border-l border-t border-solar-blue/75" />
+            <div aria-hidden className="absolute -bottom-3 -right-3 h-28 w-28 rounded-br-[30px] border-b border-r border-solar-gold/75" />
+            <div className="interactive-card relative aspect-[0.82] overflow-hidden rounded-[26px] border border-white/18 bg-[#07182b] shadow-[0_30px_80px_rgba(0,0,0,.42)] sm:aspect-[1.22] sm:min-h-[430px]">
               <Image src="/images/optimized/usina.webp" alt="Vista aérea de usina solar corporativa instalada pela Solar Energy" fill priority sizes="(min-width:1024px) 58vw, 100vw" className="object-cover object-[58%_48%]" />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,8,18,.08),rgba(2,8,18,.18)_48%,rgba(2,8,18,.92))]" />
-              <div className="absolute left-5 top-5 flex items-center gap-2 border border-white/20 bg-[#020812]/80 px-3 py-2 text-[0.65rem] font-black uppercase tracking-[0.16em] backdrop-blur-md">
-                <span className="h-2 w-2 rounded-full bg-solar-green shadow-[0_0_12px_rgba(53,185,87,.8)]" /> Projeto em destaque
+              <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/20 bg-[#020812]/80 px-3 py-2 text-[0.65rem] font-black uppercase tracking-[0.16em] backdrop-blur-md">
+                <span className="status-pulse h-2 w-2 rounded-full bg-solar-green text-solar-green shadow-[0_0_12px_rgba(53,185,87,.8)]" /> Projeto em destaque
               </div>
               <div className="absolute inset-x-0 bottom-0 grid gap-5 border-t border-white/16 bg-[#020812]/82 p-5 backdrop-blur-md sm:grid-cols-[1fr_auto] sm:p-7">
                 <div>
@@ -74,7 +74,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="hidden border-x border-t border-white/14 bg-[#020812]/62 backdrop-blur-md lg:grid lg:grid-cols-[170px_1fr_52px]">
+        <div className="mb-4 hidden overflow-hidden rounded-[18px] border border-white/14 bg-[#020812]/62 shadow-[0_18px_48px_rgba(0,0,0,.18)] backdrop-blur-md lg:grid lg:grid-cols-[170px_1fr_52px]">
           <p className="flex items-center border-r border-white/14 px-6 text-[0.66rem] font-black uppercase tracking-[0.16em] text-white/48">Uma entrega. Cinco etapas.</p>
           <ol className="grid grid-cols-5">
             {projectStages.map((stage, index) => (

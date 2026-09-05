@@ -6,11 +6,9 @@ export function SiteMotion() {
   useEffect(() => {
     const root = document.documentElement;
     const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
     root.dataset.motionReady = "true";
 
-    if (reduceMotion || !("IntersectionObserver" in window)) {
+    if (!("IntersectionObserver" in window)) {
       elements.forEach((element) => element.setAttribute("data-visible", "true"));
       return () => { delete root.dataset.motionReady; };
     }

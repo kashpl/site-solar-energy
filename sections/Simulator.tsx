@@ -223,7 +223,7 @@ export function Simulator() {
           </div>
         </div>
 
-        <div data-reveal className="mt-12 border border-white/16 bg-[#07182b] shadow-[0_28px_80px_rgba(0,0,0,.34)] lg:mt-14">
+        <div data-reveal className="mt-12 overflow-hidden rounded-[26px] border border-white/16 bg-[#07182b] shadow-[0_28px_80px_rgba(0,0,0,.34)] lg:mt-14">
           <div className="grid border-b border-white/16 px-5 py-4 text-[0.68rem] font-bold uppercase tracking-[0.15em] text-white/55 sm:grid-cols-2 sm:px-7">
             <span>Calculadora Solar Energy</span><span className="mt-2 text-solar-gold sm:mt-0 sm:text-right">Resultado imediato · sem cadastro</span>
           </div>
