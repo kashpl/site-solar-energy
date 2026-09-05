@@ -26,9 +26,9 @@ type NativeButtonProps = BaseProps &
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-solar-green text-navy shadow-[0_16px_42px_rgba(184,240,74,0.18)] hover:-translate-y-0.5 hover:bg-[#c8ff5b] hover:shadow-[0_20px_54px_rgba(184,240,74,0.28)] disabled:border disabled:border-white/[0.16] disabled:bg-white/[0.12] disabled:text-gray-dark/[0.7] disabled:shadow-none",
+    "bg-solar-green text-navy shadow-[0_16px_42px_rgba(0,208,132,0.22)] hover:-translate-y-0.5 hover:bg-[#20e09a] hover:shadow-[0_20px_54px_rgba(0,208,132,0.32)] disabled:border disabled:border-white/[0.16] disabled:bg-white/[0.12] disabled:text-gray-dark/[0.7] disabled:shadow-none",
   secondary:
-    "border border-white/20 bg-[#102b35] text-white hover:-translate-y-0.5 hover:border-solar-green/60 hover:bg-[#163844] disabled:border-white/[0.16] disabled:bg-[#102b35] disabled:text-gray-dark/[0.7] disabled:shadow-none",
+    "border border-white/20 bg-[#06356f] text-white hover:-translate-y-0.5 hover:border-solar-green/60 hover:bg-[#0a4590] disabled:border-white/[0.16] disabled:bg-[#06356f] disabled:text-gray-dark/[0.7] disabled:shadow-none",
   ghost:
     "border border-transparent bg-transparent text-white hover:border-white/20 hover:bg-white/10",
   gold:

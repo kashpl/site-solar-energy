@@ -59,27 +59,27 @@ export default async function GuideDetailPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
       />
-      <article className="bg-[#f4f6f0] pb-20 pt-32 text-[#071a22] sm:pt-36">
+      <article className="bg-[#f5f7fa] pb-20 pt-32 text-[#001a4d] sm:pt-36">
         <Container className="max-w-5xl">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#4d7c0f]"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#00735c]"
           >
             <ArrowLeft aria-hidden className="h-4 w-4" />
             Voltar para o site
           </Link>
 
-          <header className="mt-10 border-b border-[#d8ded3] pb-10">
+          <header className="mt-10 border-b border-[#d8e1ec] pb-10">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-solar-green text-navy">
               <BookOpenCheck aria-hidden className="h-6 w-6" />
             </div>
-            <p className="mt-6 text-xs font-black uppercase tracking-[0.18em] text-[#4d7c0f]">
+            <p className="mt-6 text-xs font-black uppercase tracking-[0.18em] text-[#00735c]">
               Guia Solar Energy
             </p>
             <h1 className="mt-4 max-w-4xl text-4xl font-black leading-[1.04] tracking-[-0.05em] sm:text-6xl">
               {page.title}
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[#526168]">
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-[#4b5f75]">
               {page.introduction}
             </p>
           </header>
@@ -96,13 +96,13 @@ export default async function GuideDetailPage({ params }: PageProps) {
                 >
                   {section.title}
                 </h2>
-                <div className="mt-5 grid gap-4 text-base leading-8 text-[#526168]">
+                <div className="mt-5 grid gap-4 text-base leading-8 text-[#4b5f75]">
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                 </div>
                 {section.bullets ? (
-                  <ul className="mt-6 grid gap-3 rounded-[24px] border border-[#d8ded3] bg-white p-6 sm:grid-cols-2">
+                  <ul className="mt-6 grid gap-3 rounded-[24px] border border-[#d8e1ec] bg-white p-6 sm:grid-cols-2">
                     {section.bullets.map((bullet) => (
                       <li key={bullet} className="flex gap-3 text-sm font-semibold leading-6 text-[#33474f]">
                         <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#5d8f16]" />
@@ -117,7 +117,7 @@ export default async function GuideDetailPage({ params }: PageProps) {
 
           {page.slug === "como-funciona-energia-solar" ||
           page.slug === "homologacao-energia-solar" ? (
-            <aside className="mt-12 rounded-[24px] bg-[#071e27] p-6 text-white sm:p-8">
+            <aside className="mt-12 rounded-[24px] bg-[#00245f] p-6 text-white sm:p-8">
               <p className="text-xs font-black uppercase tracking-[0.16em] text-solar-green">
                 Fonte regulatória
               </p>
@@ -152,7 +152,7 @@ export default async function GuideDetailPage({ params }: PageProps) {
 
           <Link
             href="/#contato"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-black text-[#4d7c0f]"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-black text-[#00735c]"
           >
             Solicitar análise técnica
             <ArrowUpRight aria-hidden className="h-4 w-4" />

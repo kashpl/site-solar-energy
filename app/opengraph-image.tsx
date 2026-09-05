@@ -12,7 +12,7 @@ export default function OpenGraphImage() {
           display: "flex",
           height: "100%",
           width: "100%",
-          background: "#06171f",
+          background: "#001a4d",
           color: "#ffffff",
           padding: "72px 80px",
           flexDirection: "column",
@@ -28,8 +28,8 @@ export default function OpenGraphImage() {
               width: 76,
               height: 76,
               borderRadius: 20,
-              background: "#b8f04a",
-              color: "#06171f",
+              background: "#00d084",
+              color: "#001a4d",
               fontSize: 42,
               fontWeight: 900
             }}
@@ -37,7 +37,7 @@ export default function OpenGraphImage() {
             S
           </div>
           <div style={{ display: "flex", fontSize: 38, fontWeight: 900 }}>
-            SOLAR&nbsp;<span style={{ color: "#b8f04a" }}>ENERGY</span>
+            SOLAR&nbsp;<span style={{ color: "#00d084" }}>ENERGY</span>
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -52,7 +52,7 @@ export default function OpenGraphImage() {
           >
             Energia solar para reduzir custos com previsibilidade.
           </div>
-          <div style={{ marginTop: 28, fontSize: 25, color: "#c9d2cd" }}>
+          <div style={{ marginTop: 28, fontSize: 25, color: "#e8ecf1" }}>
             Residências · Empresas · Usinas solares
           </div>
         </div>

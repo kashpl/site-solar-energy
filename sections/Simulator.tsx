@@ -222,7 +222,7 @@ export function Simulator() {
       headingAlign="left"
       tone="light"
     >
-      <div className="grid overflow-hidden rounded-[30px] bg-[#071e27] shadow-[0_30px_90px_rgba(6,23,31,0.18)] lg:grid-cols-[0.95fr_1.05fr]">
+      <div className="grid overflow-hidden rounded-[30px] bg-[#00245f] shadow-[0_30px_90px_rgba(0,26,77,0.22)] lg:grid-cols-[0.95fr_1.05fr]">
         <form onSubmit={handleEstimate} className="border-b border-white/10 p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
           <div className="mb-7 flex items-center justify-between gap-4">
             <div>

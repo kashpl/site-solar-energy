@@ -18,10 +18,10 @@ export function Projects() {
       eyebrow="Portfólio real"
       title="Da geração residencial à escala corporativa."
       subtitle="Projetos executados e em andamento que demonstram capacidade para atender diferentes perfis, potências e objetivos."
-      className="bg-[#071e27]"
+      className="bg-[#00245f]"
       headingAlign="left"
     >
-      <article className="grid overflow-hidden rounded-[30px] border border-white/10 bg-[#0c2a35] lg:grid-cols-[1.35fr_0.65fr]">
+      <article className="grid overflow-hidden rounded-[30px] border border-white/10 bg-[#00346f] lg:grid-cols-[1.35fr_0.65fr]">
         <div className="relative min-h-[360px] overflow-hidden sm:min-h-[500px]">
           <Image
             src={featured.image}
@@ -31,7 +31,7 @@ export function Projects() {
             className="object-cover"
             style={{ objectPosition: featured.objectPosition }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071e27]/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#071e27]/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#00245f]/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#00245f]/20" />
           <span className="absolute left-5 top-5 rounded-full bg-solar-green px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-navy">
             {featured.status}
           </span>
@@ -68,7 +68,7 @@ export function Projects() {
         {secondary.map((project) => (
           <article
             key={project.title}
-            className="group overflow-hidden rounded-[26px] border border-white/10 bg-[#0c2a35]"
+            className="group overflow-hidden rounded-[26px] border border-white/10 bg-[#00346f]"
           >
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
@@ -79,8 +79,8 @@ export function Projects() {
                 className="object-cover transition duration-700 group-hover:scale-[1.03]"
                 style={{ objectPosition: project.objectPosition }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071e27]/55 to-transparent" />
-              <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-[#071e27]/95 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#00245f]/55 to-transparent" />
+              <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-[#00245f]/95 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-white">
                 {project.category}
               </span>
             </div>

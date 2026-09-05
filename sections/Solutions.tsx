@@ -41,7 +41,7 @@ export function Solutions() {
       eyebrow="Soluções por perfil"
       title="Engenharia solar para diferentes escalas de consumo."
       subtitle="A mesma disciplina técnica aplicada a residências, empresas e projetos de grande porte — do estudo inicial à operação."
-      className="bg-[#f4f6f0]"
+      className="bg-[#f5f7fa]"
       headingAlign="left"
       tone="light"
     >
@@ -52,7 +52,7 @@ export function Solutions() {
           return (
             <article
               key={solution.title}
-              className="group flex min-h-[360px] flex-col rounded-[28px] bg-[#0a2732] p-7 text-white transition duration-300 hover:-translate-y-1 hover:bg-[#0d303d] sm:p-8"
+              className="group flex min-h-[360px] flex-col rounded-[28px] bg-[#002964] p-7 text-white transition duration-300 hover:-translate-y-1 hover:bg-[#00439a] sm:p-8"
             >
               <div className="flex items-start justify-between gap-4">
                 <span className="text-xs font-black uppercase tracking-[0.18em] text-solar-green">
@@ -80,21 +80,21 @@ export function Solutions() {
         })}
       </div>
 
-      <div className="mt-5 grid overflow-hidden rounded-[28px] border border-[#d8ded3] bg-white md:grid-cols-3 md:divide-x md:divide-[#d8ded3]">
+      <div className="mt-5 grid overflow-hidden rounded-[28px] border border-[#d8e1ec] bg-white md:grid-cols-3 md:divide-x md:divide-[#d8e1ec]">
         {technicalServices.map((service, index) => {
           const Icon = iconMap[service.icon] ?? Activity;
 
           return (
             <div
               key={service.title}
-              className="border-b border-[#d8ded3] p-6 last:border-b-0 md:border-b-0 sm:p-7"
+              className="border-b border-[#d8e1ec] p-6 last:border-b-0 md:border-b-0 sm:p-7"
             >
-              <Icon aria-hidden className="h-6 w-6 text-[#4d7c0f]" />
-              <h3 className="mt-5 text-lg font-black text-[#071a22]">{service.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-[#617078]">{service.description}</p>
+              <Icon aria-hidden className="h-6 w-6 text-[#00735c]" />
+              <h3 className="mt-5 text-lg font-black text-[#001a4d]">{service.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-[#61728a]">{service.description}</p>
               <Link
                 href={technicalHrefs[index]}
-                className="mt-5 inline-flex items-center gap-2 text-sm font-black text-[#4d7c0f]"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-black text-[#00735c]"
               >
                 Saiba mais
                 <ArrowUpRight aria-hidden className="h-4 w-4" />

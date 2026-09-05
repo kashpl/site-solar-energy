@@ -11,12 +11,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: "#06171f",
-        "solar-blue": "#0a4a5a",
-        "solar-green": "#b8f04a",
-        "solar-gold": "#f6c453",
-        "silver-white": "#f5f7f2",
-        "gray-dark": "#d6ddd8"
+        navy: "#001a4d",
+        "solar-blue": "#0052cc",
+        "solar-green": "#00d084",
+        "solar-gold": "#ffd700",
+        "silver-white": "#f5f7fa",
+        "gray-dark": "#e8ecf1"
       },
       boxShadow: {
         glow: "0 0 36px rgba(0, 208, 132, 0.24)",
@@ -33,9 +33,9 @@ const config: Config = {
       },
       backgroundImage: {
         "solar-gradient":
-          "linear-gradient(135deg, #06171f 0%, #0a4a5a 58%, #b8f04a 100%)",
+          "linear-gradient(135deg, #001a4d 0%, #0052cc 58%, #00d084 100%)",
         "gold-green":
-          "linear-gradient(135deg, #b8f04a 0%, #f6c453 100%)"
+          "linear-gradient(135deg, #00d084 0%, #ffd700 100%)"
       }
     }
   },

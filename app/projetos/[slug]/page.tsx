@@ -62,7 +62,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
       />
-      <article className="bg-[#071e27] pb-20 pt-32 text-white sm:pt-36">
+      <article className="bg-[#00245f] pb-20 pt-32 text-white sm:pt-36">
         <Container>
           <Link
             href="/#projetos"
@@ -100,13 +100,13 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               className="object-cover"
               style={{ objectPosition: project.objectPosition }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#071e27]/65 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#00245f]/65 via-transparent to-transparent" />
             <span className="absolute bottom-5 left-5 rounded-full bg-solar-green px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-navy">
               {project.status}
             </span>
           </div>
 
-          <div className="mt-6 grid overflow-hidden rounded-[26px] border border-white/10 bg-[#0c2a35] sm:grid-cols-3 sm:divide-x sm:divide-white/10">
+          <div className="mt-6 grid overflow-hidden rounded-[26px] border border-white/10 bg-[#00346f] sm:grid-cols-3 sm:divide-x sm:divide-white/10">
             <ProjectFact label="Potência" value={project.power} />
             <ProjectFact label={project.savings.includes("%") ? "Economia" : "Performance"} value={project.savings} />
             <ProjectFact label="Localização" value={project.location} />
@@ -124,7 +124,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 {project.description}
               </p>
             </div>
-            <div className="rounded-[28px] bg-[#0c2a35] p-7 sm:p-9">
+            <div className="rounded-[28px] bg-[#00346f] p-7 sm:p-9">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-green">
                 Escopo apresentado
               </p>

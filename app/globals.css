@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --navy: #06171f;
-  --solar-blue: #0a4a5a;
-  --solar-green: #b8f04a;
-  --solar-gold: #f6c453;
-  --silver-white: #f5f7f2;
-  --gray-dark: #d6ddd8;
+  --navy: #001a4d;
+  --solar-blue: #0052cc;
+  --solar-green: #00d084;
+  --solar-gold: #ffd700;
+  --silver-white: #f5f7fa;
+  --gray-dark: #e8ecf1;
 }
 
 * {

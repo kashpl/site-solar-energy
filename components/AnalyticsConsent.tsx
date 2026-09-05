@@ -104,7 +104,7 @@ export function AnalyticsConsent() {
       {showPanel ? (
         <aside
           aria-label="Preferências de cookies"
-          className="fixed inset-x-4 bottom-4 z-[90] mx-auto max-w-4xl rounded-[24px] border border-white/15 bg-[#06171f] p-5 text-white shadow-[0_24px_90px_rgba(0,0,0,0.45)] sm:p-6"
+          className="fixed inset-x-4 bottom-4 z-[90] mx-auto max-w-4xl rounded-[24px] border border-white/15 bg-[#001a4d] p-5 text-white shadow-[0_24px_90px_rgba(0,0,0,0.45)] sm:p-6"
         >
           <div className="flex items-start gap-4">
             <span className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full bg-solar-green text-navy sm:flex">
@@ -134,7 +134,7 @@ export function AnalyticsConsent() {
                 <button
                   type="button"
                   onClick={() => savePreference("accepted")}
-                  className="min-h-11 rounded-full bg-solar-green px-5 text-sm font-black text-navy transition hover:bg-[#c8ff5b]"
+                  className="min-h-11 rounded-full bg-solar-green px-5 text-sm font-black text-navy transition hover:bg-[#20e09a]"
                 >
                   Aceitar medição
                 </button>
@@ -154,7 +154,7 @@ export function AnalyticsConsent() {
         <button
           type="button"
           onClick={() => setShowPanel(true)}
-          className="fixed bottom-4 left-4 z-[80] flex h-10 items-center gap-2 rounded-full border border-white/15 bg-[#06171f] px-3 text-xs font-bold text-white shadow-lg sm:bottom-5"
+          className="fixed bottom-4 left-4 z-[80] flex h-10 items-center gap-2 rounded-full border border-white/15 bg-[#001a4d] px-3 text-xs font-bold text-white shadow-lg sm:bottom-5"
           aria-label="Reabrir preferências de cookies"
         >
           <Settings2 aria-hidden className="h-4 w-4 text-solar-green" />

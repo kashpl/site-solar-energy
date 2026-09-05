@@ -91,7 +91,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
       />
 
-      <section className="bg-[#071e27] pb-16 pt-32 text-white sm:pb-20 sm:pt-36">
+      <section className="bg-[#00245f] pb-16 pt-32 text-white sm:pb-20 sm:pt-36">
         <Container>
           <Link
             href="/#solucoes"
@@ -133,7 +133,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 sizes="(min-width: 1024px) 52vw, 100vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071e27]/55 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#00245f]/55 to-transparent" />
               <p className="absolute bottom-5 left-5 rounded-full bg-solar-green px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-navy">
                 {page.audience}
               </p>
@@ -142,11 +142,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <section className="bg-[#f4f6f0] py-16 text-[#071a22] sm:py-20 lg:py-24">
+      <section className="bg-[#f5f7fa] py-16 text-[#001a4d] sm:py-20 lg:py-24">
         <Container>
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-[#4d7c0f]">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-[#00735c]">
                 Benefícios do projeto
               </p>
               <h2 className="mt-4 text-3xl font-black tracking-[-0.04em] sm:text-4xl">
@@ -154,7 +154,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               </h2>
               <div className="mt-8 grid gap-4">
                 {page.benefits.map((benefit) => (
-                  <p key={benefit} className="flex items-start gap-3 text-base leading-7 text-[#526168]">
+                  <p key={benefit} className="flex items-start gap-3 text-base leading-7 text-[#4b5f75]">
                     <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-solar-green text-navy">
                       <Check aria-hidden className="h-3 w-3 stroke-[3]" />
                     </span>
@@ -164,10 +164,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               </div>
             </div>
             <div className="rounded-[28px] bg-white p-7 sm:p-9">
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-[#4d7c0f]">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-[#00735c]">
                 Escopo integrado
               </p>
-              <ol className="mt-6 divide-y divide-[#e0e5dc]">
+              <ol className="mt-6 divide-y divide-[#e0e7f0]">
                 {page.deliverables.map((item, index) => (
                   <li key={item} className="flex gap-4 py-4 first:pt-0 last:pb-0">
                     <span className="text-xs font-black text-[#87938d]">
@@ -182,7 +182,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </Container>
       </section>
 
-      <section className="bg-[#071e27] py-16 text-white sm:py-20">
+      <section className="bg-[#00245f] py-16 text-white sm:py-20">
         <Container className="max-w-5xl">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-green">
             Perguntas frequentes

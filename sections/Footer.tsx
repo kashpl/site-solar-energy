@@ -32,7 +32,7 @@ const contentLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#04141b] py-12 text-white">
+    <footer className="border-t border-white/10 bg-[#000f33] py-12 text-white">
       <Container>
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_0.62fr_0.82fr_0.9fr_1.05fr]">
           <div>

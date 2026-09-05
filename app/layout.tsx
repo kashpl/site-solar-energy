@@ -46,9 +46,9 @@ export const metadata: Metadata = {
       "Soluções solares de alto padrão para residências, empresas e grandes projetos."
   },
   icons: {
-    icon: "/brand-mark.svg",
-    shortcut: "/brand-mark.svg",
-    apple: "/brand-mark.svg"
+    icon: "/solar-energy-logo.png",
+    shortcut: "/solar-energy-logo.png",
+    apple: "/solar-energy-logo.png"
   }
 };
 
@@ -59,7 +59,7 @@ const localBusinessSchema = {
   name: company.name,
   alternateName: company.shortName,
   url: siteUrl,
-  logo: `${siteUrl}/brand-mark.svg`,
+  logo: `${siteUrl}/solar-energy-logo.png`,
   image: `${siteUrl}/images/optimized/usina.webp`,
   telephone: company.whatsapp,
   email: company.email,
@@ -102,7 +102,7 @@ const localBusinessSchema = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#06171f",
+  themeColor: "#001a4d",
   colorScheme: "dark"
 };
 

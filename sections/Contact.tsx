@@ -157,7 +157,7 @@ export function Contact() {
       eyebrow="Contato comercial"
       title="Solicite uma análise gratuita"
       subtitle="Receba uma avaliação inicial para entender economia, viabilidade e melhor solução solar para seu cenário."
-      className="bg-[#071e27]"
+      className="bg-[#00245f]"
       headingAlign="left"
     >
       <div className="grid gap-7 lg:grid-cols-[0.92fr_1.08fr]">

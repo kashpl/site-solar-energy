@@ -42,25 +42,25 @@ export function HowItWorks() {
       eyebrow="Processo integrado"
       title="Uma jornada clara, sem etapas soltas."
       subtitle="A Solar Energy coordena todo o projeto para que você tenha um ponto de contato e visibilidade do início à geração."
-      className="bg-[#f4f6f0]"
+      className="bg-[#f5f7fa]"
       headingAlign="left"
       tone="light"
       compact
     >
-      <div className="grid border-y border-[#d8ded3] md:grid-cols-2 lg:grid-cols-5 lg:divide-x lg:divide-[#d8ded3]">
+      <div className="grid border-y border-[#d8e1ec] md:grid-cols-2 lg:grid-cols-5 lg:divide-x lg:divide-[#d8e1ec]">
         {steps.map((step, index) => (
           <article
             key={step.title}
-            className="border-b border-[#d8ded3] py-7 md:px-5 md:odd:border-r md:odd:pr-7 md:even:pl-7 lg:border-b-0 lg:border-r-0 lg:px-6 lg:first:pl-0 lg:last:pr-0"
+            className="border-b border-[#d8e1ec] py-7 md:px-5 md:odd:border-r md:odd:pr-7 md:even:pl-7 lg:border-b-0 lg:border-r-0 lg:px-6 lg:first:pl-0 lg:last:pr-0"
           >
             <div className="flex items-center justify-between gap-4">
-              <step.icon aria-hidden className="h-6 w-6 text-[#4d7c0f]" />
-              <span className="text-xs font-black tracking-[0.14em] text-[#9aa59f]">
+              <step.icon aria-hidden className="h-6 w-6 text-[#00735c]" />
+              <span className="text-xs font-black tracking-[0.14em] text-[#8795a8]">
                 {String(index + 1).padStart(2, "0")}
               </span>
             </div>
-            <h3 className="mt-8 text-lg font-black text-[#071a22]">{step.title}</h3>
-            <p className="mt-3 text-sm leading-6 text-[#617078]">{step.text}</p>
+            <h3 className="mt-8 text-lg font-black text-[#001a4d]">{step.title}</h3>
+            <p className="mt-3 text-sm leading-6 text-[#61728a]">{step.text}</p>
           </article>
         ))}
       </div>

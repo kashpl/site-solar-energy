@@ -21,7 +21,7 @@ export function Hero() {
     >
       <div
         aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(circle_at_10%_12%,rgba(184,240,74,0.11),transparent_24%),linear-gradient(115deg,#06171f_0%,#06171f_48%,#0a2530_100%)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_10%_12%,rgba(0,208,132,0.14),transparent_24%),radial-gradient(circle_at_88%_8%,rgba(255,215,0,0.1),transparent_26%),linear-gradient(115deg,#001a4d_0%,#001a4d_48%,#003a88_100%)]"
       />
       <div
         aria-hidden
@@ -69,7 +69,7 @@ export function Hero() {
           </div>
 
           <div className="relative mx-auto w-full max-w-[620px] lg:max-w-none">
-            <div className="absolute -left-6 -top-6 z-20 hidden rounded-[20px] border border-white/10 bg-[#06171f] p-4 shadow-2xl sm:block">
+            <div className="absolute -left-6 -top-6 z-20 hidden rounded-[20px] border border-white/10 bg-[#001a4d] p-4 shadow-2xl sm:block">
               <div className="flex items-center gap-3">
                 <span className="flex h-11 w-11 items-center justify-center rounded-full bg-solar-green text-navy">
                   <SunMedium aria-hidden className="h-5 w-5" />
@@ -83,7 +83,7 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[#0c2833] p-2 shadow-[0_34px_100px_rgba(0,0,0,0.34)]">
+            <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[#00346f] p-2 shadow-[0_34px_100px_rgba(0,0,0,0.34)]">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[24px] sm:aspect-[5/4] lg:aspect-[4/5] xl:aspect-[5/4]">
                 <Image
                   src="/images/optimized/usina.webp"
@@ -96,7 +96,7 @@ export function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/5 to-transparent" />
 
-                <div className="absolute inset-x-5 bottom-5 rounded-[18px] border border-white/15 bg-[#06171f]/95 p-5 sm:inset-x-6 sm:bottom-6">
+                <div className="absolute inset-x-5 bottom-5 rounded-[18px] border border-white/15 bg-[#001a4d]/95 p-5 sm:inset-x-6 sm:bottom-6">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                     <div>
                       <p className="text-xs font-black uppercase tracking-[0.16em] text-solar-green">
@@ -127,7 +127,7 @@ export function Hero() {
               rel="noreferrer"
               className="absolute -bottom-5 right-4 z-20 hidden items-center gap-3 rounded-full bg-white px-5 py-3 text-sm font-black text-navy shadow-2xl transition hover:-translate-y-1 sm:flex"
             >
-              <ShieldCheck aria-hidden className="h-5 w-5 text-[#4e8700]" />
+              <ShieldCheck aria-hidden className="h-5 w-5 text-[#00735c]" />
               Falar com especialista
             </a>
           </div>

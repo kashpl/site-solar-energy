@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 type BrandLogoProps = {
@@ -8,7 +9,8 @@ type BrandLogoProps = {
 
 export function BrandLogo({
   variant = "header",
-  className
+  className,
+  priority = false
 }: BrandLogoProps) {
   const isFooter = variant === "footer";
 
@@ -16,32 +18,18 @@ export function BrandLogo({
     <span className={cn("inline-flex min-w-0 items-center gap-3", className)}>
       <span
         className={cn(
-          "flex shrink-0 items-center justify-center rounded-[14px] bg-solar-green text-navy shadow-[0_12px_34px_rgba(184,240,74,0.18)]",
-          isFooter ? "h-14 w-14" : "h-11 w-11"
+          "relative shrink-0 overflow-hidden rounded-[14px] border border-white/15 bg-black shadow-[0_12px_34px_rgba(0,82,204,0.3)]",
+          isFooter ? "h-16 w-16" : "h-12 w-12"
         )}
-        aria-hidden="true"
       >
-        <svg
-          viewBox="0 0 48 48"
-          className={isFooter ? "h-9 w-9" : "h-7 w-7"}
-          fill="none"
-        >
-          <circle cx="32.5" cy="12.5" r="5.5" fill="currentColor" />
-          <path
-            d="M9 29.5 16.5 17h21L30 29.5H9Z"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="3.2"
-            strokeLinejoin="round"
-          />
-          <path d="m16 20 14 7.5M24 17l-7.5 12.5" stroke="currentColor" strokeWidth="2.2" />
-          <path
-            d="M8 36h19.5"
-            stroke="currentColor"
-            strokeWidth="3.2"
-            strokeLinecap="round"
-          />
-        </svg>
+        <Image
+          src="/solar-energy-logo.png"
+          alt=""
+          fill
+          priority={priority}
+          sizes={isFooter ? "64px" : "48px"}
+          className="object-cover"
+        />
       </span>
 
       <span className="grid min-w-0 leading-none">
@@ -51,7 +39,7 @@ export function BrandLogo({
             isFooter ? "text-[1.7rem]" : "text-[1.15rem] sm:text-[1.28rem]"
           )}
         >
-          Solar <span className="text-solar-green">Energy</span>
+          Solar <span className="text-solar-gold">Energy</span>
         </span>
         <span
           className={cn(

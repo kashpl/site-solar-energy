@@ -22,7 +22,7 @@ export function FAQ() {
       eyebrow="Dúvidas frequentes"
       title="Informação clara antes da decisão."
       subtitle="Respostas objetivas sobre economia, dimensionamento, homologação e manutenção de sistemas fotovoltaicos."
-      className="bg-[#f4f6f0]"
+      className="bg-[#f5f7fa]"
       headingAlign="left"
       tone="light"
       compact
@@ -33,24 +33,24 @@ export function FAQ() {
           __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c")
         }}
       />
-      <div className="divide-y divide-[#d8ded3] border-y border-[#d8ded3]">
+      <div className="divide-y divide-[#d8e1ec] border-y border-[#d8e1ec]">
         {faqs.map((faq, index) => (
           <details key={faq.question} className="group py-5 sm:py-6">
-            <summary className="flex cursor-pointer list-none items-start justify-between gap-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#4d7c0f]">
+            <summary className="flex cursor-pointer list-none items-start justify-between gap-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#00735c]">
               <span className="flex gap-4">
-                <span className="mt-1 text-xs font-black tracking-[0.12em] text-[#7b8981]">
+                <span className="mt-1 text-xs font-black tracking-[0.12em] text-[#75859a]">
                   0{index + 1}
                 </span>
-                <span className="text-lg font-black text-[#071a22] sm:text-xl">
+                <span className="text-lg font-black text-[#001a4d] sm:text-xl">
                   {faq.question}
                 </span>
               </span>
               <ChevronDown
                 aria-hidden
-                className="mt-1 h-5 w-5 shrink-0 text-[#4d7c0f] transition group-open:rotate-180"
+                className="mt-1 h-5 w-5 shrink-0 text-[#00735c] transition group-open:rotate-180"
               />
             </summary>
-            <p className="ml-10 mt-4 max-w-3xl text-sm leading-7 text-[#617078] sm:text-base">
+            <p className="ml-10 mt-4 max-w-3xl text-sm leading-7 text-[#61728a] sm:text-base">
               {faq.answer}
             </p>
           </details>

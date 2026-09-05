@@ -142,7 +142,7 @@ export function Header() {
             aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={isOpen}
             onClick={() => setIsOpen((value) => !value)}
-            className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-[#102b35] text-white lg:hidden"
+            className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-[#06356f] text-white lg:hidden"
           >
             {isOpen ? (
               <X aria-hidden className="h-5 w-5" />
@@ -156,10 +156,10 @@ export function Header() {
       <div
         aria-hidden={!isOpen}
         className={cn(
-          "fixed inset-x-0 bottom-0 top-[76px] z-40 h-[calc(100vh-76px)] overflow-y-auto overscroll-contain border-t border-white/10 bg-[#06171f] px-5 pb-8 pt-3 supports-[height:100dvh]:h-[calc(100dvh-76px)] lg:hidden",
+          "fixed inset-x-0 bottom-0 top-[76px] z-40 h-[calc(100vh-76px)] overflow-y-auto overscroll-contain border-t border-white/10 bg-[#001a4d] px-5 pb-8 pt-3 supports-[height:100dvh]:h-[calc(100dvh-76px)] lg:hidden",
           isOpen ? "block" : "hidden"
         )}
-        style={{ backgroundColor: "#06171f", opacity: 1 }}
+        style={{ backgroundColor: "#001a4d", opacity: 1 }}
       >
         <nav aria-label="Menu mobile" className="mx-auto grid max-w-xl">
           {navItems.map((item, index) => (

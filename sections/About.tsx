@@ -30,7 +30,7 @@ export function About() {
       id="sobre"
       eyebrow="Quem executa"
       title="Engenharia próxima. Entrega responsável."
-      className="bg-[#071e27]"
+      className="bg-[#00245f]"
       headingAlign="left"
     >
       <div className="grid items-stretch gap-6 lg:grid-cols-[1.08fr_0.92fr]">
@@ -42,8 +42,8 @@ export function About() {
             sizes="(min-width: 1024px) 55vw, 100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071e27]/80 via-transparent to-transparent" />
-          <div className="absolute bottom-6 left-6 right-6 max-w-md rounded-2xl border border-white/15 bg-[#071e27]/95 p-5 sm:bottom-8 sm:left-8">
+          <div className="absolute inset-0 bg-gradient-to-t from-[#00245f]/80 via-transparent to-transparent" />
+          <div className="absolute bottom-6 left-6 right-6 max-w-md rounded-2xl border border-white/15 bg-[#00245f]/95 p-5 sm:bottom-8 sm:left-8">
             <p className="text-xs font-black uppercase tracking-[0.16em] text-solar-green">
               Equipe técnica em campo
             </p>
@@ -54,7 +54,7 @@ export function About() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-between rounded-[30px] bg-[#0c2a35] p-7 sm:p-9 lg:p-10">
+        <div className="flex flex-col justify-between rounded-[30px] bg-[#00346f] p-7 sm:p-9 lg:p-10">
           <div>
             <p className="text-lg leading-8 text-gray-dark/90">
               A Solar Energy Qualidade e Eficiência nasceu para transformar a forma como
