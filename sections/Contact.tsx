@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   BadgeCheck,
   Building2,
@@ -14,6 +14,7 @@ import {
   Zap
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { CityAutocomplete } from "@/components/CityAutocomplete";
@@ -144,6 +145,7 @@ export function Contact() {
       setStatus("loading");
       await submitLead();
       setStatus("success");
+      trackEvent("generate_lead", { source: "contact_form" });
     } catch {
       setStatus("error");
     }
@@ -155,16 +157,11 @@ export function Contact() {
       eyebrow="Contato comercial"
       title="Solicite uma análise gratuita"
       subtitle="Receba uma avaliação inicial para entender economia, viabilidade e melhor solução solar para seu cenário."
-      className="section-contact section-divider-bottom"
+      className="bg-[#071e27]"
       headingAlign="left"
     >
       <div className="grid gap-7 lg:grid-cols-[0.92fr_1.08fr]">
-        <motion.div
-          initial={{ opacity: 1, x: 0 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.12 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           <Card className="h-full p-6 sm:p-8">
             <p className="text-sm font-extrabold uppercase tracking-[0.16em] text-solar-green">
               Atendimento especializado
@@ -195,19 +192,27 @@ export function Contact() {
               <ContactItem icon={MapPin} label="Localização" value={company.location} />
             </div>
 
+            <div className="mt-8 border-t border-white/10 pt-6 text-sm leading-6 text-gray-dark/65">
+              <p className="font-black text-white">Empresa identificada</p>
+              <p className="mt-2">CNPJ {company.cnpj}</p>
+              <a
+                href={company.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-1 inline-flex text-solar-green transition hover:text-white"
+              >
+                {company.address}
+              </a>
+            </div>
+
             <div className="mt-8 rounded-lg border border-solar-gold/25 bg-solar-gold/10 p-5 text-sm leading-7 text-gray-dark">
               Conta média, cidade e tipo de imóvel já permitem uma conversa muito mais
               objetiva sobre economia, retorno e viabilidade.
             </div>
           </Card>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 1, x: 0 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.12 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           <Card className="p-5 sm:p-7">
             <div className="mb-6 flex items-center justify-between gap-4">
               <div>
@@ -299,6 +304,18 @@ export function Contact() {
                 required
               />
 
+              <p className="text-xs leading-5 text-gray-dark/60">
+                Ao enviar, você declara estar ciente de como tratamos seus dados para
+                responder à solicitação, conforme nossa{" "}
+                <Link
+                  href="/politica-de-privacidade"
+                  className="font-semibold text-solar-green underline decoration-solar-green/40 underline-offset-4 transition hover:text-white"
+                >
+                  Política de Privacidade
+                </Link>
+                .
+              </p>
+
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button href={whatsappUrl} target="_blank" rel="noreferrer" className="sm:flex-1">
                   Falar pelo WhatsApp
@@ -330,7 +347,7 @@ export function Contact() {
               ) : null}
             </form>
           </Card>
-        </motion.div>
+        </div>
       </div>
     </Section>
   );

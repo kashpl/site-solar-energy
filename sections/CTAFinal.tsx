@@ -1,5 +1,4 @@
-import { BadgeCheck, Phone, ShieldCheck, SunMedium, TrendingDown } from "lucide-react";
-import { Button } from "@/components/Button";
+import { ArrowUpRight, BadgeCheck, Phone } from "lucide-react";
 import { Container } from "@/components/Container";
 import {
   buildGeneralWhatsAppMessage,
@@ -8,62 +7,37 @@ import {
 
 export function CTAFinal() {
   return (
-    <section className="relative overflow-hidden bg-navy py-16 sm:py-20">
-      <div className="absolute inset-0 solar-cell-texture opacity-30" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(255,215,0,0.28),transparent_34%),radial-gradient(circle_at_20%_82%,rgba(0,208,132,0.22),transparent_32%)]" />
-      <div
-        aria-hidden
-        className="animate-pulse-slow absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(255,215,0,0.16),transparent_34%)]"
-      />
-
-      <Container className="relative">
-        <div className="relative overflow-hidden rounded-lg border border-white/[0.16] bg-white/[0.075] p-6 shadow-[0_26px_90px_rgba(0,0,0,0.3)] backdrop-blur-2xl sm:p-8 lg:p-10">
-          <div aria-hidden className="cta-solar-emblem hidden lg:block" />
-          <div className="grid items-center gap-8 lg:grid-cols-[1fr_260px]">
+    <section className="bg-[#f4f6f0] pb-16 sm:pb-20 lg:pb-24">
+      <Container>
+        <div className="relative overflow-hidden rounded-[30px] bg-solar-green p-7 text-navy sm:p-10 lg:p-14">
+          <div
+            aria-hidden
+            className="absolute -right-20 -top-24 h-72 w-72 rounded-full border-[48px] border-[#071e27]/[0.06]"
+          />
+          <div className="relative grid items-end gap-8 lg:grid-cols-[1fr_auto]">
             <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-solar-green/25 bg-solar-green/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-solar-green">
+              <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em]">
                 <BadgeCheck aria-hidden className="h-4 w-4" />
-                Análise gratuita
-              </div>
-              <h2 className="max-w-3xl text-3xl font-black leading-tight text-white sm:text-5xl">
-                Pronto para transformar luz solar em economia previsível?
-              </h2>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-gray-dark/80">
-                Fale com a equipe da Solar Energy e receba uma primeira avaliação para
-                entender viabilidade, economia estimada e melhor solução para seu imóvel.
+                Análise inicial gratuita
               </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                {[
-                  { icon: BadgeCheck, label: "Sem compromisso" },
-                  { icon: ShieldCheck, label: "Atendimento especializado" },
-                  { icon: TrendingDown, label: "Economia estimada" }
-                ].map((item) => (
-                  <span
-                    key={item.label}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.07] px-4 py-2 text-sm font-bold text-gray-dark/85"
-                  >
-                    <item.icon aria-hidden className="h-4 w-4 text-solar-green" />
-                    {item.label}
-                  </span>
-                ))}
-              </div>
-              <Button
-                href={createWhatsAppUrl(buildGeneralWhatsAppMessage())}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-8"
-                icon={<Phone aria-hidden className="h-4 w-4" />}
-                showArrow
-              >
-                Quero meu orçamento gratuito
-              </Button>
+              <h2 className="mt-5 max-w-4xl text-3xl font-black leading-[1.04] tracking-[-0.05em] sm:text-5xl lg:text-6xl">
+                Transforme sua conta de energia em uma decisão de investimento.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base font-medium leading-7 text-[#25402f] sm:text-lg">
+                Fale com a equipe e confirme viabilidade, economia estimada e a solução
+                mais adequada ao seu imóvel ou operação.
+              </p>
             </div>
-            <div className="hidden lg:flex justify-end">
-              <div className="relative flex h-36 w-36 items-center justify-center rounded-full border border-solar-gold/25 bg-solar-gold/10 text-solar-gold shadow-gold">
-                <SunMedium aria-hidden className="h-14 w-14" />
-                <div className="absolute inset-4 rounded-full border border-white/[0.12]" />
-              </div>
-            </div>
+            <a
+              href={createWhatsAppUrl(buildGeneralWhatsAppMessage())}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-navy px-6 py-4 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-[#0d303d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy"
+            >
+              <Phone aria-hidden className="h-4 w-4" />
+              Solicitar orçamento
+              <ArrowUpRight aria-hidden className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </Container>

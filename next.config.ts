@@ -5,11 +5,11 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 const nextConfig: NextConfig = {
   async headers() {
     const scriptSrc = isDevelopment
-      ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:"
-      : "script-src 'self' 'unsafe-inline'";
+      ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://www.googletagmanager.com https://connect.facebook.net"
+      : "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net";
     const connectSrc = isDevelopment
-      ? "connect-src 'self' ws: http://127.0.0.1:3000 http://localhost:3000 https://wa.me https://api.whatsapp.com"
-      : "connect-src 'self' https://wa.me https://api.whatsapp.com";
+      ? "connect-src 'self' ws: http://127.0.0.1:* http://localhost:* https://wa.me https://api.whatsapp.com https://www.google-analytics.com https://analytics.google.com https://www.facebook.com"
+      : "connect-src 'self' https://wa.me https://api.whatsapp.com https://www.google-analytics.com https://analytics.google.com https://www.facebook.com";
 
     const securityHeaders = [
       {
@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
           "default-src 'self'",
           scriptSrc,
           "style-src 'self' 'unsafe-inline'",
-          "img-src 'self' data: blob:",
+          "img-src 'self' data: blob: https://www.google-analytics.com https://www.facebook.com",
           "font-src 'self' data:",
           connectSrc,
           "frame-ancestors 'none'",

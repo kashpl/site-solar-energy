@@ -1,181 +1,197 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, Phone, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { company } from "@/data/company";
-import {
-  buildGeneralWhatsAppMessage,
-  createWhatsAppUrl
-} from "@/lib/whatsappFormatter";
 import { cn, scrollToSection } from "@/lib/utils";
 
 const navItems = [
-  { href: "#inicio", label: "Início" },
-  { href: "#sobre", label: "Sobre" },
   { href: "#solucoes", label: "Soluções" },
-  { href: "#beneficios", label: "Benefícios" },
-  { href: "#como-funciona", label: "Como funciona" },
   { href: "#projetos", label: "Projetos" },
   { href: "#simulador", label: "Simulador" },
-  { href: "#contato", label: "Contato" }
+  { href: "#como-funciona", label: "Processo" },
+  { href: "#sobre", label: "Empresa" }
 ];
 
 export function Header() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeHref, setActiveHref] = useState("#inicio");
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 18);
+    const onScroll = () => setIsScrolled(!isHomePage || window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHomePage]);
 
   useEffect(() => {
+    if (!isHomePage || !("IntersectionObserver" in window)) {
+      return;
+    }
+
     const sections = navItems
       .map((item) => document.querySelector(item.href))
       .filter((section): section is Element => section !== null);
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (visible?.target.id) {
-          setActiveHref(`#${visible.target.id}`);
-        }
+        const visible = entries.find((entry) => entry.isIntersecting);
+        if (visible?.target.id) setActiveHref(`#${visible.target.id}`);
       },
-      { rootMargin: "-30% 0px -55% 0px", threshold: [0.12, 0.28, 0.5] }
+      { rootMargin: "-35% 0px -55% 0px", threshold: 0.1 }
     );
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, []);
+  }, [isHomePage]);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = isOpen ? "hidden" : previousBodyOverflow;
+    document.documentElement.style.overflow = isOpen ? "hidden" : previousHtmlOverflow;
+
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
     };
   }, [isOpen]);
 
-  const handleNavClick = (href: string) => {
+  useEffect(() => {
+    const closeMenu = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsOpen(false);
+    };
+
+    window.addEventListener("keydown", closeMenu);
+    return () => window.removeEventListener("keydown", closeMenu);
+  }, []);
+
+  const navigate = (href: string) => {
     setIsOpen(false);
     setActiveHref(href);
     scrollToSection(href);
   };
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "border-b border-white/[0.12] bg-[#001236]/[0.92] shadow-[0_18px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl"
-          : "bg-gradient-to-b from-navy/[0.5] via-navy/[0.22] to-transparent"
-      )}
-    >
-      <Container className="flex h-[78px] items-center justify-between gap-4 py-3 sm:h-[86px] xl:gap-6">
-        <a
-          href="#inicio"
-          aria-label={`${company.name} - voltar ao início`}
-          onClick={(event) => {
-            event.preventDefault();
-            handleNavClick("#inicio");
-          }}
-          className="relative z-50 flex min-w-0 items-center"
-        >
-          <BrandLogo priority />
-        </a>
-
-        <nav
-          aria-label="Navegação principal"
-          className="hidden min-w-0 items-center gap-0.5 rounded-md border border-white/[0.08] bg-white/[0.05] p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-xl xl:flex"
-        >
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={(event) => {
-                event.preventDefault();
-                handleNavClick(item.href);
-              }}
-              className={cn(
-                "whitespace-nowrap rounded-md px-2.5 py-2 text-[0.82rem] font-semibold text-white/[0.78] transition duration-300 hover:bg-white/[0.08] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar-gold 2xl:px-3 2xl:text-sm",
-                activeHref === item.href && "bg-solar-green/[0.12] text-solar-green"
-              )}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="hidden shrink-0 items-center gap-3 lg:flex">
-          <Button
-            href={createWhatsAppUrl(buildGeneralWhatsAppMessage())}
-            target="_blank"
-            rel="noreferrer"
-            icon={<Phone aria-hidden className="h-4 w-4" />}
-            className="min-w-[126px] whitespace-nowrap px-4 text-[0.82rem] shadow-[0_14px_44px_rgba(0,208,132,0.25)] hover:shadow-[0_18px_54px_rgba(0,208,132,0.4)] xl:min-w-[178px] xl:px-5 xl:text-sm"
-          >
-            <span className="hidden whitespace-nowrap xl:inline">Solicitar orçamento</span>
-            <span className="whitespace-nowrap xl:hidden">Orçamento</span>
-          </Button>
-        </div>
-
-        <button
-          type="button"
-          aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((value) => !value)}
-          className="relative z-50 inline-flex h-12 w-12 items-center justify-center rounded-md border border-white/[0.16] bg-white/[0.09] text-white shadow-[0_12px_40px_rgba(0,0,0,0.2)] backdrop-blur-xl transition hover:border-solar-green lg:hidden"
-        >
-          {isOpen ? <X aria-hidden className="h-6 w-6" /> : <Menu aria-hidden className="h-6 w-6" />}
-        </button>
-      </Container>
-
-      <div
+    <>
+      <header
         className={cn(
-          "fixed inset-y-0 right-0 z-40 w-full max-w-[440px] bg-navy/[0.96] backdrop-blur-2xl transition duration-300 lg:hidden",
-          isOpen
-            ? "visible translate-x-0 opacity-100"
-            : "invisible translate-x-[110%] opacity-0 pointer-events-none"
+          "fixed inset-x-0 top-0 z-50 border-b bg-navy transition-shadow duration-300",
+          isScrolled
+            ? "border-white/10 shadow-[0_18px_55px_rgba(0,0,0,0.22)]"
+            : "border-transparent"
         )}
       >
-        <div className="flex min-h-svh flex-col justify-center px-6 pt-28">
-          <nav aria-label="Menu mobile" className="grid gap-2">
+        <Container className="flex h-[76px] items-center justify-between gap-5">
+          <a
+            href={isHomePage ? "#inicio" : "/"}
+            aria-label={`${company.name} — início`}
+            onClick={(event) => {
+              if (isHomePage) {
+                event.preventDefault();
+                navigate("#inicio");
+              }
+            }}
+            className="relative z-50"
+          >
+            <BrandLogo priority />
+          </a>
+
+          <nav aria-label="Navegação principal" className="hidden items-center gap-7 lg:flex">
             {navItems.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={isHomePage ? item.href : `/${item.href}`}
                 onClick={(event) => {
-                  event.preventDefault();
-                  handleNavClick(item.href);
+                  if (isHomePage) {
+                    event.preventDefault();
+                    navigate(item.href);
+                  }
                 }}
                 className={cn(
-                  "rounded-md border border-white/[0.12] bg-white/[0.055] px-5 py-4 text-lg font-semibold text-white transition hover:border-solar-green hover:text-solar-green",
-                  activeHref === item.href && "border-solar-green/50 bg-solar-green/10 text-solar-green"
+                  "relative py-3 text-sm font-semibold text-white/65 transition hover:text-white",
+                  activeHref === item.href &&
+                    "text-white after:absolute after:inset-x-0 after:bottom-1 after:h-0.5 after:rounded-full after:bg-solar-green"
                 )}
               >
                 {item.label}
               </a>
             ))}
           </nav>
-          <Button
-            href={createWhatsAppUrl(buildGeneralWhatsAppMessage())}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-6 w-full whitespace-nowrap"
-            icon={<Phone aria-hidden className="h-4 w-4" />}
+
+          <div className="hidden lg:block">
+            <Button
+              href={isHomePage ? "#simulador" : "/#simulador"}
+              className="min-h-11 px-5"
+              showArrow
+            >
+              Simular economia
+            </Button>
+          </div>
+
+          <button
+            type="button"
+            aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen((value) => !value)}
+            className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-[#102b35] text-white lg:hidden"
           >
-            Solicitar orçamento
+            {isOpen ? (
+              <X aria-hidden className="h-5 w-5" />
+            ) : (
+              <Menu aria-hidden className="h-5 w-5" />
+            )}
+          </button>
+        </Container>
+      </header>
+
+      <div
+        aria-hidden={!isOpen}
+        className={cn(
+          "fixed inset-x-0 bottom-0 top-[76px] z-40 h-[calc(100vh-76px)] overflow-y-auto overscroll-contain border-t border-white/10 bg-[#06171f] px-5 pb-8 pt-3 supports-[height:100dvh]:h-[calc(100dvh-76px)] lg:hidden",
+          isOpen ? "block" : "hidden"
+        )}
+        style={{ backgroundColor: "#06171f", opacity: 1 }}
+      >
+        <nav aria-label="Menu mobile" className="mx-auto grid max-w-xl">
+          {navItems.map((item, index) => (
+            <a
+              key={item.href}
+              href={isHomePage ? item.href : `/${item.href}`}
+              onClick={(event) => {
+                if (isHomePage) {
+                  event.preventDefault();
+                  navigate(item.href);
+                } else {
+                  setIsOpen(false);
+                }
+              }}
+              className="flex items-center justify-between border-b border-white/10 py-5 text-2xl font-black tracking-[-0.03em] text-white"
+            >
+              <span>{item.label}</span>
+              <span className="flex items-center gap-3 text-sm font-bold text-solar-green">
+                0{index + 1}
+                <ArrowUpRight aria-hidden className="h-5 w-5" />
+              </span>
+            </a>
+          ))}
+          <Button
+            href={isHomePage ? "#simulador" : "/#simulador"}
+            onClick={() => setIsOpen(false)}
+            className="mt-8 w-full"
+          >
+            Simular economia
           </Button>
-        </div>
+        </nav>
       </div>
-    </header>
+    </>
   );
 }

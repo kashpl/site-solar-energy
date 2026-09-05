@@ -17,6 +17,7 @@ export type LeadPayload = {
     annualSavings?: number;
     estimatedROI?: string;
     co2Reduction?: number;
+    estimatedSystemPowerKwp?: number;
     referenceInvestment?: number;
     referenceConsumptionKwh?: number;
     referenceSystemPowerKwp?: number;

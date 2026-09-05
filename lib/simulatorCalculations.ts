@@ -14,6 +14,7 @@ export type SimulatorResult = {
   estimatedRoiMonths: number;
   estimatedRoiLabel: string;
   co2ReductionKg: number;
+  estimatedSystemPowerKwp: number;
   referenceInvestment: number;
   referenceConsumptionKwh: number;
   referenceSystemPowerKwp: number;
@@ -66,6 +67,10 @@ export function calculateSolarSavings(input: SimulatorInput): SimulatorResult {
   const estimatedRoiMonths =
     monthlySavings > 0 ? estimatedInvestment / monthlySavings : 0;
   const co2ReductionKg = input.monthlyConsumptionKwh * 0.5;
+  const estimatedSystemPowerKwp = roundCurrency(
+    (input.monthlyConsumptionKwh / REFERENCE_MONTHLY_CONSUMPTION_KWH) *
+      REFERENCE_SYSTEM_POWER_KWP
+  );
 
   return {
     estimatedPercent,
@@ -75,6 +80,7 @@ export function calculateSolarSavings(input: SimulatorInput): SimulatorResult {
     estimatedRoiMonths,
     estimatedRoiLabel: formatPayback(estimatedRoiMonths),
     co2ReductionKg,
+    estimatedSystemPowerKwp,
     referenceInvestment: REFERENCE_INVESTMENT_BRL,
     referenceConsumptionKwh: REFERENCE_MONTHLY_CONSUMPTION_KWH,
     referenceSystemPowerKwp: REFERENCE_SYSTEM_POWER_KWP

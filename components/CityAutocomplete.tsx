@@ -101,7 +101,7 @@ export function CityAutocomplete({
         <div
           id={listboxId}
           role="listbox"
-          className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-40 overflow-hidden rounded-md border border-white/[0.16] bg-[#031b49]/95 p-1 shadow-[0_20px_60px_rgba(0,0,0,0.38)] backdrop-blur-2xl"
+          className="absolute left-0 right-0 top-[calc(100%+0.5rem)] z-40 overflow-hidden rounded-md border border-white/[0.16] bg-[#082530] p-1 shadow-[0_20px_60px_rgba(0,0,0,0.38)]"
         >
           {suggestions.map((city, index) => (
             <button

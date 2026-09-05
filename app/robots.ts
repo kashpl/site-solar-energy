@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
+import { company } from "@/data/company";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://solarenergyqualidade.com.br";
+const siteUrl = company.siteUrl;
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,6 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/"
     },
-    sitemap: `${siteUrl}/sitemap.xml`
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl
   };
 }

@@ -2,10 +2,10 @@ import { Header } from "@/components/Header";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { About } from "@/sections/About";
 import { AuthorityNumbers } from "@/sections/AuthorityNumbers";
-import { Benefits } from "@/sections/Benefits";
 import { Contact } from "@/sections/Contact";
 import { CTAFinal } from "@/sections/CTAFinal";
 import { Footer } from "@/sections/Footer";
+import { FAQ } from "@/sections/FAQ";
 import { Hero } from "@/sections/Hero";
 import { HowItWorks } from "@/sections/HowItWorks";
 import { Projects } from "@/sections/Projects";
@@ -20,13 +20,13 @@ export default function Home() {
       <main>
         <Hero />
         <AuthorityNumbers />
-        <About />
         <Solutions />
-        <Benefits />
-        <HowItWorks />
-        <Simulator />
         <Projects />
+        <Simulator />
+        <HowItWorks />
+        <About />
         <Testimonials />
+        <FAQ />
         <Contact />
         <CTAFinal />
       </main>

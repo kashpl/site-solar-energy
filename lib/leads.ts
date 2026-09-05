@@ -53,6 +53,7 @@ function sanitizeSimulation(value: unknown): LeadPayload["simulation"] {
     annualSavings: sanitizeNumber(simulation.annualSavings),
     estimatedROI: sanitizeString(simulation.estimatedROI, 80),
     co2Reduction: sanitizeNumber(simulation.co2Reduction),
+    estimatedSystemPowerKwp: sanitizeNumber(simulation.estimatedSystemPowerKwp),
     referenceInvestment: sanitizeNumber(simulation.referenceInvestment),
     referenceConsumptionKwh: sanitizeNumber(simulation.referenceConsumptionKwh),
     referenceSystemPowerKwp: sanitizeNumber(simulation.referenceSystemPowerKwp)

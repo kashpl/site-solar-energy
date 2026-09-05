@@ -1,20 +1,16 @@
-import { FadeIn } from "@/components/animations/FadeIn";
 import {
   Activity,
+  ArrowUpRight,
   Building2,
   ClipboardCheck,
   Factory,
   Home,
   SearchCheck
 } from "lucide-react";
+import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
-import { Card } from "@/components/Card";
 import { Section } from "@/components/Section";
 import { solutions } from "@/data/solutions";
-import {
-  buildSolutionWhatsAppMessage,
-  createWhatsAppUrl
-} from "@/lib/whatsappFormatter";
 
 const iconMap: Record<string, LucideIcon> = {
   home: Home,
@@ -25,61 +21,85 @@ const iconMap: Record<string, LucideIcon> = {
   search: SearchCheck
 };
 
-const accents = [
-  "from-solar-green/20 via-white/[0.04] to-transparent",
-  "from-solar-gold/20 via-white/[0.04] to-transparent",
-  "from-solar-blue/30 via-white/[0.04] to-transparent"
-];
-
 export function Solutions() {
+  const primarySolutions = solutions.slice(0, 3);
+  const technicalServices = solutions.slice(3);
+  const primaryHrefs = [
+    "/solucoes/energia-solar-residencial-fortaleza",
+    "/solucoes/energia-solar-empresarial-ceara",
+    "/solucoes/usinas-solares-nordeste"
+  ];
+  const technicalHrefs = [
+    "/solucoes/manutencao-sistema-fotovoltaico",
+    "/guias/homologacao-energia-solar",
+    "/#contato"
+  ];
+
   return (
     <Section
       id="solucoes"
-      eyebrow="Soluções"
-      title="Soluções completas em energia solar"
-      subtitle="Projetos desenhados para reduzir custos, aumentar previsibilidade e transformar energia limpa em vantagem competitiva."
-      className="section-blueprint section-divider-bottom"
+      eyebrow="Soluções por perfil"
+      title="Engenharia solar para diferentes escalas de consumo."
+      subtitle="A mesma disciplina técnica aplicada a residências, empresas e projetos de grande porte — do estudo inicial à operação."
+      className="bg-[#f4f6f0]"
+      headingAlign="left"
+      tone="light"
     >
-      <div aria-hidden className="premium-grid absolute inset-0 opacity-[0.28]" />
-      <div className="relative grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {solutions.map((solution, index) => {
+      <div className="grid gap-5 lg:grid-cols-3">
+        {primarySolutions.map((solution, index) => {
           const Icon = iconMap[solution.icon] ?? Home;
 
           return (
-            <FadeIn
+            <article
               key={solution.title}
-              direction="up"
-              distance={28}
-              amount={0.25}
-              duration={0.5}
-              delay={index * 0.06}
+              className="group flex min-h-[360px] flex-col rounded-[28px] bg-[#0a2732] p-7 text-white transition duration-300 hover:-translate-y-1 hover:bg-[#0d303d] sm:p-8"
             >
-              <a
-                href={createWhatsAppUrl(buildSolutionWhatsAppMessage())}
-                target="_blank"
-                rel="noreferrer"
-                className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar-gold"
-              >
-              <Card className="engineering-card relative h-full overflow-hidden p-6 transition duration-500 after:absolute after:inset-x-6 after:bottom-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-solar-gold/50 after:to-transparent hover:-translate-y-1.5 hover:border-solar-green/60 hover:shadow-glow">
-                <div className={`absolute inset-0 bg-gradient-to-br ${accents[index % accents.length]} opacity-80`} />
-                <div className="relative mb-6 flex items-center justify-between gap-4">
-                  <div className="flex h-[54px] w-[54px] items-center justify-center rounded-lg border border-solar-green/30 bg-navy/45 text-solar-green shadow-[0_16px_44px_rgba(0,208,132,0.12)] transition group-hover:border-solar-gold/40 group-hover:text-solar-gold">
-                    <Icon aria-hidden className="h-6 w-6" />
-                  </div>
-                  <span className="muted-badge rounded-full px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-gray-dark/75">
-                    {solution.tag}
-                  </span>
-                </div>
-                <h3 className="relative text-xl font-black text-white">{solution.title}</h3>
-                <p className="relative mt-4 text-sm leading-7 text-gray-dark/80">
+              <div className="flex items-start justify-between gap-4">
+                <span className="text-xs font-black uppercase tracking-[0.18em] text-solar-green">
+                  {String(index + 1).padStart(2, "0")} / {solution.tag}
+                </span>
+                <Icon aria-hidden className="h-7 w-7 text-solar-green" />
+              </div>
+              <div className="mt-auto pt-16">
+                <h3 className="max-w-xs text-3xl font-black leading-[1.05] tracking-[-0.045em]">
+                  {solution.title}
+                </h3>
+                <p className="mt-5 text-sm leading-7 text-gray-dark/75">
                   {solution.description}
                 </p>
-                <p className="relative mt-6 inline-flex items-center whitespace-nowrap rounded-md border border-solar-green/30 bg-solar-green/10 px-3.5 py-2 text-sm font-bold text-solar-green transition group-hover:bg-solar-green/20 group-hover:text-white">
-                  Conversar com especialista
-                </p>
-              </Card>
-              </a>
-            </FadeIn>
+                <Link
+                  href={primaryHrefs[index]}
+                  className="mt-7 inline-flex items-center gap-2 text-sm font-extrabold text-solar-green outline-none transition hover:gap-3 focus-visible:ring-2 focus-visible:ring-solar-green"
+                >
+                  Conhecer esta solução
+                  <ArrowUpRight aria-hidden className="h-4 w-4" />
+                </Link>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <div className="mt-5 grid overflow-hidden rounded-[28px] border border-[#d8ded3] bg-white md:grid-cols-3 md:divide-x md:divide-[#d8ded3]">
+        {technicalServices.map((service, index) => {
+          const Icon = iconMap[service.icon] ?? Activity;
+
+          return (
+            <div
+              key={service.title}
+              className="border-b border-[#d8ded3] p-6 last:border-b-0 md:border-b-0 sm:p-7"
+            >
+              <Icon aria-hidden className="h-6 w-6 text-[#4d7c0f]" />
+              <h3 className="mt-5 text-lg font-black text-[#071a22]">{service.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-[#617078]">{service.description}</p>
+              <Link
+                href={technicalHrefs[index]}
+                className="mt-5 inline-flex items-center gap-2 text-sm font-black text-[#4d7c0f]"
+              >
+                Saiba mais
+                <ArrowUpRight aria-hidden className="h-4 w-4" />
+              </Link>
+            </div>
           );
         })}
       </div>

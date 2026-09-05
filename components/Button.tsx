@@ -26,9 +26,9 @@ type NativeButtonProps = BaseProps &
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-solar-green text-navy shadow-[0_18px_46px_rgba(0,208,132,0.32)] hover:-translate-y-0.5 hover:bg-[#15e49a] hover:shadow-[0_24px_60px_rgba(0,208,132,0.42)] disabled:border disabled:border-white/[0.16] disabled:bg-white/[0.12] disabled:text-gray-dark/[0.7] disabled:shadow-none",
+    "bg-solar-green text-navy shadow-[0_16px_42px_rgba(184,240,74,0.18)] hover:-translate-y-0.5 hover:bg-[#c8ff5b] hover:shadow-[0_20px_54px_rgba(184,240,74,0.28)] disabled:border disabled:border-white/[0.16] disabled:bg-white/[0.12] disabled:text-gray-dark/[0.7] disabled:shadow-none",
   secondary:
-    "border border-white/25 bg-white/[0.08] text-white backdrop-blur-xl hover:-translate-y-0.5 hover:border-solar-green/70 hover:bg-white/[0.14] disabled:border-white/[0.16] disabled:bg-white/[0.1] disabled:text-gray-dark/[0.7] disabled:shadow-none",
+    "border border-white/20 bg-[#102b35] text-white hover:-translate-y-0.5 hover:border-solar-green/60 hover:bg-[#163844] disabled:border-white/[0.16] disabled:bg-[#102b35] disabled:text-gray-dark/[0.7] disabled:shadow-none",
   ghost:
     "border border-transparent bg-transparent text-white hover:border-white/20 hover:bg-white/10",
   gold:
@@ -36,7 +36,7 @@ const variants: Record<ButtonVariant, string> = {
 };
 
 const baseClass =
-  "inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-4 py-3 text-sm font-extrabold tracking-[0.01em] transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar-gold disabled:pointer-events-none disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-70 sm:px-5";
+  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold tracking-[-0.01em] transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar-green disabled:pointer-events-none disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-70 sm:px-6";
 
 export function Button(props: LinkButtonProps | NativeButtonProps) {
   const {

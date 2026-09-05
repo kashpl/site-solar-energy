@@ -81,6 +81,9 @@ export function buildSimulatorWhatsAppMessage(data: {
     `Economia mensal: ${formatCurrency(data.result.monthlySavings)}`,
     `Economia anual: ${formatCurrency(data.result.annualSavings)}`,
     `Retorno estimado: ${data.result.estimatedRoiLabel}`,
+    `Potência estimada do sistema: ${data.result.estimatedSystemPowerKwp.toLocaleString("pt-BR", {
+      maximumFractionDigits: 2
+    })} kWp`,
     `Redução de CO₂: ${data.result.co2ReductionKg.toFixed(1)} kg/mês`,
     "",
     "Gostaria de uma análise gratuita para confirmar a melhor solução para meu caso."

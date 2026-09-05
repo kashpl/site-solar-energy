@@ -7,7 +7,6 @@ Site institucional premium em Next.js para geração de leads, simulação de ec
 - Next.js com App Router
 - React e TypeScript
 - Tailwind CSS
-- Framer Motion
 - Lucide Icons
 - API serverless em `app/api/leads/route.ts`
 - Backend de leads preparado para Supabase e webhook opcional
@@ -78,7 +77,10 @@ Também há variáveis CSS equivalentes em `app/globals.css`.
 Crie `.env.local` com base em `.env.example`.
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://seu-dominio.com.br
+NEXT_PUBLIC_SITE_URL=https://www.solarenergyqe.com.br
+
+NEXT_PUBLIC_GA_ID=
+NEXT_PUBLIC_META_PIXEL_ID=
 
 SUPABASE_URL=
 SUPABASE_SERVICE_ROLE_KEY=
@@ -87,6 +89,11 @@ SUPABASE_SECRET_KEY=
 LEADS_NOTIFICATION_EMAIL=
 LEADS_WEBHOOK_URL=
 ```
+
+`NEXT_PUBLIC_GA_ID` e `NEXT_PUBLIC_META_PIXEL_ID` são opcionais. Quando um deles é
+configurado, o site exibe preferências de cookies e só carrega a respectiva ferramenta
+após consentimento. Cliques no WhatsApp, CTAs do simulador, simulações concluídas e leads
+são enviados como eventos de conversão.
 
 Use `SUPABASE_SERVICE_ROLE_KEY` ou `SUPABASE_SECRET_KEY` no servidor. Não use uma chave `sb_publishable_...` para o backend de leads e nunca coloque chave privilegiada com prefixo `NEXT_PUBLIC_`.
 
@@ -215,9 +222,10 @@ curl -X POST http://localhost:3000/api/leads \
 1. Suba o projeto para um repositório Git.
 2. Importe o repositório na Vercel.
 3. Configure `NEXT_PUBLIC_SITE_URL`.
-4. Configure `SUPABASE_URL` e uma chave server-side: `SUPABASE_SERVICE_ROLE_KEY` ou `SUPABASE_SECRET_KEY`.
-5. Opcionalmente configure `LEADS_WEBHOOK_URL`.
-6. Use os comandos padrão:
+4. Opcionalmente configure `NEXT_PUBLIC_GA_ID` e `NEXT_PUBLIC_META_PIXEL_ID`.
+5. Configure `SUPABASE_URL` e uma chave server-side: `SUPABASE_SERVICE_ROLE_KEY` ou `SUPABASE_SECRET_KEY`.
+6. Opcionalmente configure `LEADS_WEBHOOK_URL`.
+7. Use os comandos padrão:
    - Build: `npm run build`
    - Start: gerenciado pela Vercel
 

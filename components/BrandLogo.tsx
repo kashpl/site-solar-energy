@@ -1,10 +1,4 @@
-import Image from "next/image";
 import { cn } from "@/lib/utils";
-
-export const brandAssets = {
-  logo: "/images/optimized/final.webp",
-  icon: "/images/optimized/icone.webp"
-};
 
 type BrandLogoProps = {
   variant?: "header" | "footer";
@@ -12,82 +6,64 @@ type BrandLogoProps = {
   priority?: boolean;
 };
 
-type BrandMarkProps = {
-  size?: "sm" | "md" | "lg";
-  className?: string;
-  priority?: boolean;
-};
-
 export function BrandLogo({
   variant = "header",
-  className,
-  priority = false
+  className
 }: BrandLogoProps) {
+  const isFooter = variant === "footer";
+
   return (
-    <span
-      className={cn(
-        "brand-lockup",
-        variant === "header" ? "brand-lockup-header" : "brand-lockup-footer",
-        className
-      )}
-    >
-      <BrandMark size={variant === "header" ? "sm" : "md"} priority={priority} />
-      <span className="brand-lockup-copy">
-        <span className="brand-lockup-name" aria-label="Solar Energy">
-          <span className="brand-word-solar">Solar</span>
-          <span className="brand-word-energy">Energy</span>
-        </span>
-        <span className="brand-lockup-subtitle">Qualidade e Eficiência</span>
+    <span className={cn("inline-flex min-w-0 items-center gap-3", className)}>
+      <span
+        className={cn(
+          "flex shrink-0 items-center justify-center rounded-[14px] bg-solar-green text-navy shadow-[0_12px_34px_rgba(184,240,74,0.18)]",
+          isFooter ? "h-14 w-14" : "h-11 w-11"
+        )}
+        aria-hidden="true"
+      >
+        <svg
+          viewBox="0 0 48 48"
+          className={isFooter ? "h-9 w-9" : "h-7 w-7"}
+          fill="none"
+        >
+          <circle cx="32.5" cy="12.5" r="5.5" fill="currentColor" />
+          <path
+            d="M9 29.5 16.5 17h21L30 29.5H9Z"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3.2"
+            strokeLinejoin="round"
+          />
+          <path d="m16 20 14 7.5M24 17l-7.5 12.5" stroke="currentColor" strokeWidth="2.2" />
+          <path
+            d="M8 36h19.5"
+            stroke="currentColor"
+            strokeWidth="3.2"
+            strokeLinecap="round"
+          />
+        </svg>
       </span>
-    </span>
-  );
-}
 
-export function BrandMark({
-  size = "md",
-  className,
-  priority = false
-}: BrandMarkProps) {
-  return (
-    <span className={cn("brand-mark", `brand-mark-${size}`, className)} aria-hidden="true">
-      <span className="brand-mark-halo" />
-      <Image
-        src={brandAssets.icon}
-        alt=""
-        fill
-        sizes={size === "sm" ? "44px" : size === "md" ? "56px" : "72px"}
-        priority={priority}
-        className="brand-mark-image"
-      />
-      <span className="brand-mark-shine" />
-    </span>
-  );
-}
-
-type BrandIconProps = {
-  variant?: "watermark" | "accent";
-  className?: string;
-  priority?: boolean;
-};
-
-export function BrandIcon({
-  variant = "watermark",
-  className,
-  priority = false
-}: BrandIconProps) {
-  return (
-    <span
-      className={cn("brand-icon-integrated", `brand-icon-integrated-${variant}`, className)}
-      aria-hidden="true"
-    >
-      <Image
-        src={brandAssets.icon}
-        alt=""
-        fill
-        sizes={variant === "watermark" ? "360px" : "96px"}
-        priority={priority}
-        className="brand-icon-integrated-image"
-      />
+      <span className="grid min-w-0 leading-none">
+        <span
+          className={cn(
+            "whitespace-nowrap font-black uppercase tracking-[-0.03em] text-white",
+            isFooter ? "text-[1.7rem]" : "text-[1.15rem] sm:text-[1.28rem]"
+          )}
+        >
+          Solar <span className="text-solar-green">Energy</span>
+        </span>
+        <span
+          className={cn(
+            "mt-1 whitespace-nowrap font-bold uppercase text-gray-dark/60",
+            isFooter
+              ? "text-[0.65rem] tracking-[0.2em]"
+              : "text-[0.52rem] tracking-[0.18em] sm:text-[0.57rem]"
+          )}
+        >
+          Qualidade e eficiência
+        </span>
+      </span>
     </span>
   );
 }
