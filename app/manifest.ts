@@ -8,12 +8,12 @@ export default function manifest(): MetadataRoute.Manifest {
       "Projetos de energia solar para residências, empresas e operações de grande porte.",
     start_url: "/",
     display: "standalone",
-    background_color: "#001a4d",
-    theme_color: "#001a4d",
+    background_color: "#020812",
+    theme_color: "#020b16",
     lang: "pt-BR",
     icons: [
       {
-        src: "/brand-mark.svg",
+        src: "/icon.svg",
         sizes: "any",
         type: "image/svg+xml",
         purpose: "any"

@@ -18,7 +18,7 @@ const technical = [
 
 function SolutionCard({ solution, index, large = false }: { solution: (typeof primary)[number]; index: number; large?: boolean }) {
   return (
-    <article className={`group relative isolate overflow-hidden border border-navy/16 bg-navy ${large ? "min-h-[590px]" : "min-h-[286px]"}`}>
+    <article data-reveal className={`group relative isolate overflow-hidden border border-navy/16 bg-navy ${large ? "min-h-[590px]" : "min-h-[286px]"}`}>
       <Image src={solution.image} alt={solution.title} fill sizes={large ? "(min-width:1024px) 46vw, 100vw" : "(min-width:1024px) 40vw, 100vw"} className="object-cover transition-transform duration-300 [transition-timing-function:var(--ease-out)] group-hover:scale-[1.018]" />
       <div className={`absolute inset-0 ${large ? "bg-[linear-gradient(180deg,rgba(2,8,18,.04),rgba(2,8,18,.12)_42%,rgba(2,8,18,.96))]" : "bg-[linear-gradient(90deg,rgba(2,8,18,.96),rgba(2,8,18,.68)_60%,rgba(2,8,18,.16))]"}`} />
       <div className={`absolute inset-0 flex flex-col justify-between ${large ? "p-6 sm:p-8" : "p-6 sm:p-7"}`}>
@@ -39,9 +39,9 @@ export function Solutions() {
   return (
     <section id="solucoes" className="bg-paper py-20 text-navy sm:py-24 lg:py-28">
       <Container>
-        <div className="grid gap-8 border-t border-navy/18 pt-6 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
+        <div data-reveal className="grid gap-8 border-t border-navy/18 pt-6 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-blue">01 / Soluções</p>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-[#0863b5]">01 / Soluções</p>
             <p className="mt-5 max-w-xs text-sm leading-6 text-ink-muted">A tecnologia muda de escala. O método e o padrão de entrega permanecem.</p>
           </div>
           <div>
@@ -57,15 +57,15 @@ export function Solutions() {
           <div className="grid gap-4"><SolutionCard solution={primary[1]} index={1} /><SolutionCard solution={primary[2]} index={2} /></div>
         </div>
 
-        <div className="mt-8 grid border-y border-navy/16 lg:grid-cols-[.55fr_1.45fr]">
+        <div data-reveal className="mt-8 grid border-y border-navy/16 lg:grid-cols-[.55fr_1.45fr]">
           <div className="py-6 lg:border-r lg:border-navy/16 lg:pr-8">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-orange">Camada técnica</p>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-[#a84100]">Camada técnica</p>
             <p className="mt-3 max-w-sm text-sm leading-6 text-ink-muted">Serviços para manter o sistema regularizado, seguro e produtivo.</p>
           </div>
           <div className="grid sm:grid-cols-3">
             {technical.map((service, index) => (
               <Link key={service.title} href={service.href} className="group border-t border-navy/16 p-5 sm:border-l sm:border-t-0 sm:p-6">
-                <span className="text-[0.65rem] font-black tracking-[0.14em] text-solar-blue">T–0{index + 1}</span>
+                <span className="text-[0.65rem] font-black tracking-[0.14em] text-[#0863b5]">T–0{index + 1}</span>
                 <h3 className="mt-5 text-lg font-black leading-tight">{service.title}</h3>
                 <ArrowUpRight aria-hidden className="mt-7 h-5 w-5 text-solar-gold transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>

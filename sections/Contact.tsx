@@ -58,19 +58,19 @@ export function Contact() {
   return (
     <section id="contato" className="bg-[#020812] py-20 text-white sm:py-24 lg:py-28">
       <Container>
-        <div className="grid gap-8 border-t border-white/16 pt-6 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
+        <div data-reveal className="grid gap-8 border-t border-white/16 pt-6 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-orange">08 / Fale com a equipe</p>
           <div><h2 className="max-w-4xl text-4xl font-black leading-[0.98] tracking-[-0.045em] sm:text-5xl lg:text-[3.9rem]">Leve sua conta. Nós cuidamos do próximo passo.</h2><p className="mt-6 max-w-2xl text-base leading-7 text-white/64 sm:text-lg">A equipe avalia consumo, imóvel e viabilidade para indicar uma solução coerente com o seu cenário.</p></div>
         </div>
 
-        <div className="mt-14 grid border border-white/18 bg-[#001a4d] lg:grid-cols-[0.68fr_1.32fr] lg:mt-16">
+        <div data-reveal className="mt-14 grid border border-white/18 bg-[#001a4d] lg:grid-cols-[0.68fr_1.32fr] lg:mt-16">
           <aside className="flex flex-col border-b border-white/16 p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-green">Canal direto</p>
             <h3 className="mt-5 text-3xl font-black leading-tight tracking-[-0.03em]">Atendimento técnico-comercial em Fortaleza.</h3>
             <div className="mt-10 divide-y divide-white/16 border-y border-white/16">
-              <a href={createWhatsAppUrl(buildContactWhatsAppMessage({ name: "Cliente", city: "minha cidade", propertyType: "não informado", billValue: "não informado", message: "Quero receber uma análise gratuita." }))} target="_blank" rel="noreferrer" className="grid grid-cols-[34px_1fr] gap-4 py-5 hover:text-solar-green"><Phone aria-hidden className="h-5 w-5 text-solar-green" /><span><small className="block text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white/45">WhatsApp</small><strong className="mt-1 block text-sm">{company.whatsapp}</strong></span></a>
-              <a href={`mailto:${company.email}`} className="grid grid-cols-[34px_1fr] gap-4 py-5 hover:text-solar-green"><Mail aria-hidden className="h-5 w-5 text-solar-green" /><span><small className="block text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white/45">E-mail</small><strong className="mt-1 block break-all text-sm">{company.email}</strong></span></a>
-              <a href={company.mapsUrl} target="_blank" rel="noreferrer" className="grid grid-cols-[34px_1fr] gap-4 py-5 hover:text-solar-green"><MapPin aria-hidden className="h-5 w-5 text-solar-green" /><span><small className="block text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white/45">Endereço</small><strong className="mt-1 block text-sm leading-6">{company.address}</strong></span></a>
+              <a href={createWhatsAppUrl(buildContactWhatsAppMessage({ name: "Cliente", city: "minha cidade", propertyType: "não informado", billValue: "não informado", message: "Quero receber uma análise gratuita." }))} target="_blank" rel="noreferrer" className="grid grid-cols-[34px_1fr] gap-4 py-5 hover:text-solar-green"><Phone aria-hidden className="h-5 w-5 text-solar-green" /><span><small className="block text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white/58">WhatsApp</small><strong className="mt-1 block text-sm">{company.whatsapp}</strong></span></a>
+              <a href={`mailto:${company.email}`} className="grid grid-cols-[34px_1fr] gap-4 py-5 hover:text-solar-green"><Mail aria-hidden className="h-5 w-5 text-solar-green" /><span><small className="block text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white/58">E-mail</small><strong className="mt-1 block break-all text-sm">{company.email}</strong></span></a>
+              <a href={company.mapsUrl} target="_blank" rel="noreferrer" className="grid grid-cols-[34px_1fr] gap-4 py-5 hover:text-solar-green"><MapPin aria-hidden className="h-5 w-5 text-solar-green" /><span><small className="block text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white/58">Endereço</small><strong className="mt-1 block text-sm leading-6">{company.address}</strong></span></a>
             </div>
             <dl className="mt-auto grid grid-cols-2 gap-6 pt-10 text-xs"><div><dt className="font-bold uppercase tracking-[0.12em] text-white/42">Registro</dt><dd className="mt-2 font-bold">{company.cnpj}</dd></div><div><dt className="font-bold uppercase tracking-[0.12em] text-white/42">Análise inicial</dt><dd className="mt-2 font-bold text-solar-green">Sem custo</dd></div></dl>
           </aside>

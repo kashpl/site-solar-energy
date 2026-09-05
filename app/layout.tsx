@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Solar Energy Qualidade e Eficiência"
   },
   description:
-    "Projetos de energia solar em Fortaleza e no Ceará para residências, empresas e operações de grande porte, com engenharia, homologação e suporte.",
+    "Energia solar em Fortaleza e no Ceará para residências, empresas e usinas. Simule sua economia e fale com a equipe da Solar Energy.",
   applicationName: company.name,
   category: "energia solar",
   alternates: {
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Solar Energy Qualidade e Eficiência",
+    title: "Energia Solar em Fortaleza e Ceará | Solar Energy",
     description:
-      "Energia solar inteligente para reduzir custos, aumentar eficiência e gerar oportunidades reais de economia.",
+      "Projetos fotovoltaicos com engenharia, homologação, instalação e suporte para residências, empresas e usinas.",
     url: siteUrl,
     siteName: "Solar Energy Qualidade e Eficiência",
     locale: "pt_BR",
@@ -54,19 +54,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Solar Energy Qualidade e Eficiência",
+    title: "Energia Solar em Fortaleza e Ceará | Solar Energy",
     description:
-      "Soluções solares de alto padrão para residências, empresas e grandes projetos."
+      "Projetos fotovoltaicos com engenharia, homologação, instalação e suporte."
   },
   icons: {
-    icon: "/solar-energy-logo.png",
-    shortcut: "/solar-energy-logo.png",
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: "/icon.svg",
     apple: "/solar-energy-logo.png"
   }
 };
 
 const localBusinessSchema = {
-  "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": `${siteUrl}/#empresa`,
   name: company.name,
@@ -114,8 +113,24 @@ const localBusinessSchema = {
   }
 };
 
+const siteSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Solar Energy",
+      alternateName: "Solar Energy Qualidade e Eficiência",
+      inLanguage: "pt-BR",
+      publisher: { "@id": `${siteUrl}/#empresa` }
+    },
+    localBusinessSchema
+  ]
+};
+
 export const viewport: Viewport = {
-  themeColor: "#001a4d",
+  themeColor: "#020b16",
   colorScheme: "light"
 };
 
@@ -136,7 +151,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c")
+            __html: JSON.stringify(siteSchema).replace(/</g, "\\u003c")
           }}
         />
         {children}

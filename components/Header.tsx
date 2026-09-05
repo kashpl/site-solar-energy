@@ -6,7 +6,6 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
-import { company } from "@/data/company";
 import { cn, scrollToSection } from "@/lib/utils";
 
 const navItems = [
@@ -99,7 +98,6 @@ export function Header() {
         <Container className="flex h-[76px] items-center justify-between gap-5">
           <a
             href={isHomePage ? "#inicio" : "/"}
-            aria-label={`${company.name} — início`}
             onClick={(event) => {
               if (isHomePage) {
                 event.preventDefault();

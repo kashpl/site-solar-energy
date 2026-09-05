@@ -8,7 +8,7 @@ export function CTAFinal() {
       <div aria-hidden className="absolute -right-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full border border-solar-gold/25" />
       <div aria-hidden className="absolute -right-8 top-1/2 h-52 w-52 -translate-y-1/2 rounded-full border border-solar-green/25" />
       <Container className="relative">
-        <div className="grid min-h-[390px] items-stretch lg:grid-cols-[1fr_270px]">
+        <div data-reveal className="grid min-h-[390px] items-stretch lg:grid-cols-[1fr_270px]">
           <div className="flex flex-col justify-center border-x border-white/14 px-6 py-14 sm:px-10 lg:px-14 lg:py-16">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-gold">Próxima decisão</p>
             <h2 className="mt-6 max-w-4xl text-4xl font-black leading-[0.98] tracking-[-0.045em] sm:text-5xl lg:text-[4.2rem]">Sua energia pode trabalhar a favor do seu futuro.</h2>

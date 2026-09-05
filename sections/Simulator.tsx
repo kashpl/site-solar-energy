@@ -215,7 +215,7 @@ export function Simulator() {
   return (
     <section id="simulador" className="brand-aurora py-20 text-white sm:py-24 lg:py-28">
       <Container>
-        <div className="grid gap-8 border-t border-white/16 pt-6 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
+        <div data-reveal className="grid gap-8 border-t border-white/16 pt-6 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-gold">03 / Simulador</p>
           <div>
             <h2 className="max-w-4xl text-4xl font-black leading-[0.98] tracking-[-0.045em] sm:text-5xl lg:text-[3.9rem]">Descubra o potencial da sua conta de energia.</h2>
@@ -223,7 +223,7 @@ export function Simulator() {
           </div>
         </div>
 
-        <div className="mt-12 border border-white/16 bg-[#07182b] shadow-[0_28px_80px_rgba(0,0,0,.34)] lg:mt-14">
+        <div data-reveal className="mt-12 border border-white/16 bg-[#07182b] shadow-[0_28px_80px_rgba(0,0,0,.34)] lg:mt-14">
           <div className="grid border-b border-white/16 px-5 py-4 text-[0.68rem] font-bold uppercase tracking-[0.15em] text-white/55 sm:grid-cols-2 sm:px-7">
             <span>Calculadora Solar Energy</span><span className="mt-2 text-solar-gold sm:mt-0 sm:text-right">Resultado imediato · sem cadastro</span>
           </div>
@@ -336,7 +336,7 @@ function EstimatePreview() {
           <div key={item.label} className="grid grid-cols-[42px_1fr_auto] items-center gap-4 border-b border-white/16 py-4">
             <item.icon aria-hidden className="h-5 w-5 text-solar-green" />
             <p className="text-sm font-bold text-white/75">{item.label}</p>
-            <span className="text-[0.65rem] font-black tracking-[0.12em] text-white/35">R–0{index + 1}</span>
+            <span className="text-[0.65rem] font-black tracking-[0.12em] text-white/58">R–0{index + 1}</span>
           </div>
         ))}
       </div>

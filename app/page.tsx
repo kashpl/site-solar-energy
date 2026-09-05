@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { SiteMotion } from "@/components/SiteMotion";
 import { About } from "@/sections/About";
 import { AuthorityNumbers } from "@/sections/AuthorityNumbers";
 import { Contact } from "@/sections/Contact";
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <>
       <Header />
+      <SiteMotion />
       <main id="conteudo-principal">
         <Hero />
         <AuthorityNumbers />

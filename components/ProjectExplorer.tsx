@@ -56,7 +56,7 @@ export function ProjectExplorer() {
           const selected = index === activeIndex;
           return (
             <button key={project.slug} id={`${baseId}-tab-${index}`} type="button" role="tab" aria-selected={selected} aria-controls={`${baseId}-panel`} tabIndex={selected ? 0 : -1} onClick={() => setActiveIndex(index)} className="project-tab group relative grid min-h-[118px] w-full grid-cols-[36px_1fr_auto] items-center gap-4 border-b border-white/12 px-5 py-5 text-left last:border-b-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-solar-gold lg:min-h-0">
-              <span className="text-[0.65rem] font-black tracking-[0.14em] text-white/35">0{index + 1}</span>
+              <span className="text-[0.65rem] font-black tracking-[0.14em] text-white/58">0{index + 1}</span>
               <span>
                 <strong className={`block text-base font-black transition-colors ${selected ? "text-white" : "text-white/62 group-hover:text-white"}`}>{project.title}</strong>
                 <small className="mt-2 block text-xs text-white/42">{project.location}</small>

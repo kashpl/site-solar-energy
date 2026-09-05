@@ -13,6 +13,10 @@ function BrandTrails() {
       <path className="brand-trail brand-trail-green" d="M-120 676c257-176 422-183 610-93 197 94 370 36 531-160 73-88 132-130 228-156" />
       <path className="brand-trail brand-trail-gold" d="M74 778c112-198 273-290 459-278 237 16 397-87 505-303 42-84 97-145 188-190" />
       <path className="brand-trail brand-trail-orange" d="M640 759c-3-188 82-306 253-395 152-79 244-186 281-325" />
+      <path className="brand-trail-pulse brand-trail-blue brand-pulse-1" d="M-70 610C170 390 326 350 522 387c224 42 316-51 462-245 58-77 123-123 211-145" />
+      <path className="brand-trail-pulse brand-trail-green brand-pulse-2" d="M-120 676c257-176 422-183 610-93 197 94 370 36 531-160 73-88 132-130 228-156" />
+      <path className="brand-trail-pulse brand-trail-gold brand-pulse-3" d="M74 778c112-198 273-290 459-278 237 16 397-87 505-303 42-84 97-145 188-190" />
+      <path className="brand-trail-pulse brand-trail-orange brand-pulse-4" d="M640 759c-3-188 82-306 253-395 152-79 244-186 281-325" />
     </svg>
   );
 }
@@ -23,25 +27,25 @@ export function Hero() {
       <BrandTrails />
       <Container className="relative z-10">
         <div className="grid min-h-[700px] items-center gap-12 py-14 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16 lg:py-16">
-          <div className="hero-intro-reveal max-w-[650px]">
-            <div className="mb-7 flex items-center gap-3 text-[0.7rem] font-black uppercase tracking-[0.2em] text-white/65">
+          <div className="hero-sequence max-w-[650px]">
+            <div className="hero-sequence-item mb-7 flex items-center gap-3 text-[0.7rem] font-black uppercase tracking-[0.2em] text-white/65">
               <MapPin aria-hidden className="h-4 w-4 text-solar-gold" />
               <span>Fortaleza · Ceará</span>
               <span className="h-px w-8 bg-solar-green" />
               <span>Atuação no Nordeste</span>
             </div>
-            <h1 className="max-w-[650px] text-[clamp(3.25rem,5.8vw,5rem)] font-black leading-[0.94] tracking-[-0.055em]">
+            <h1 className="hero-sequence-item max-w-[650px] text-[clamp(3.25rem,5.8vw,5rem)] font-black leading-[0.94] tracking-[-0.055em]">
               Energia solar,<br />
               <span className="text-solar-gold">do cálculo</span> à geração.
             </h1>
-            <p className="mt-7 max-w-[590px] text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
+            <p className="hero-sequence-item mt-7 max-w-[590px] text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
               Engenharia fotovoltaica completa para residências, empresas e usinas — com projeto sob medida, homologação e acompanhamento técnico.
             </p>
-            <div className="mt-8 flex flex-col gap-3 min-[430px]:flex-row">
+            <div className="hero-sequence-item mt-8 flex flex-col gap-3 min-[430px]:flex-row">
               <Button href="#simulador" showArrow className="min-h-14">Simular minha economia</Button>
               <Button href="#projetos" variant="secondary" className="min-h-14">Conhecer projetos</Button>
             </div>
-            <ul className="mt-9 grid gap-3 border-t border-white/14 pt-6 text-sm text-white/72 sm:grid-cols-2">
+            <ul className="hero-sequence-item mt-9 grid gap-3 border-t border-white/14 pt-6 text-sm text-white/72 sm:grid-cols-2">
               <li className="flex items-center gap-2"><Check aria-hidden className="h-4 w-4 text-solar-green" /> Projeto personalizado</li>
               <li className="flex items-center gap-2"><Check aria-hidden className="h-4 w-4 text-solar-green" /> Homologação incluída</li>
             </ul>

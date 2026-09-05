@@ -39,7 +39,8 @@
 ## Interação e movimento
 
 - Botões: feedback de pressão em 150ms.
-- Hero: trilhas da marca desenhadas uma única vez, sem loop.
+- Hero: trilhas da marca surgem uma vez e recebem pulsos finos em movimento contínuo, lento e dessincronizado; as curvas permanecem atrás do conteúdo.
+- Seções: revelação única e discreta ao entrar na viewport, combinando opacidade e deslocamento vertical curto.
 - Projetos: tabs acessíveis com transição de imagem por opacidade, escala e recorte em 320ms.
 - Imagens: hover máximo de 1.018, somente em ponteiro preciso.
 - Todo movimento é reduzido por `prefers-reduced-motion`.
@@ -49,5 +50,5 @@
 - Linha decorativa atravessando título, descrição ou CTA.
 - Fundo verde neon em área extensa.
 - Grid técnico sem função, gráficos falsos e cartões repetidos de startup.
-- Glassmorphism, brilho contínuo, parallax pesado e animação infinita.
+- Glassmorphism, parallax pesado e animação infinita em conteúdo funcional; a única exceção é o pulso ambiente das trilhas do hero.
 - Tipografia gigante que exige múltiplas dobras para comunicar uma ideia.

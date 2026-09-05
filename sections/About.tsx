@@ -14,30 +14,30 @@ export function About() {
   return (
     <section id="sobre" className="bg-canvas py-20 text-navy sm:py-24 lg:py-28">
       <Container>
-        <div className="grid gap-0 border border-navy/20 bg-paper lg:grid-cols-[1.12fr_0.88fr]">
-          <div className="relative min-h-[460px] overflow-hidden lg:min-h-[650px]">
-            <Image src="/images/optimized/639311282FIMI0026 (3).webp" alt="Equipe técnica da Solar Energy em campo" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
+        <div data-reveal className="grid gap-0 border border-navy/20 bg-paper lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="relative min-h-[400px] overflow-hidden sm:min-h-[460px] lg:m-8 lg:h-[560px] lg:min-h-0 lg:self-center xl:m-10">
+            <Image src="/images/optimized/639311282FIMI0026 (3).webp" alt="Equipe técnica da Solar Energy em campo" fill sizes="(min-width: 1280px) 31vw, (min-width: 1024px) 36vw, 100vw" className="object-cover object-[52%_50%]" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/95 to-transparent px-6 pb-7 pt-28 text-white sm:px-9">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-green">Registro de campo</p>
               <p className="mt-3 max-w-lg text-lg font-semibold leading-7">Instalação acompanhada, segurança operacional e atenção ao detalhe em cada etapa.</p>
             </div>
           </div>
-          <div className="flex flex-col p-6 sm:p-9 lg:p-12 xl:p-14">
+          <div className="flex flex-col p-6 sm:p-9 lg:p-10 xl:p-12">
             <p className="border-t border-navy/25 pt-6 text-xs font-black uppercase tracking-[0.18em] text-[#49647c]">05 / Quem executa</p>
-            <h2 className="mt-8 text-4xl font-black leading-[1.02] tracking-[-0.04em] sm:text-5xl">Engenharia próxima. Entrega responsável.</h2>
-            <p className="mt-7 text-base leading-8 text-ink-muted">A Solar Energy Qualidade e Eficiência une engenharia, atendimento próximo e execução segura para transformar consumo em estratégia energética.</p>
-            <div className="mt-10 border-t border-navy/20">
+            <h2 className="mt-7 text-4xl font-black leading-[1.02] tracking-[-0.04em] sm:text-[2.8rem]">Engenharia próxima. Entrega responsável.</h2>
+            <p className="mt-6 text-base leading-7 text-ink-muted">A Solar Energy Qualidade e Eficiência une engenharia, atendimento próximo e execução segura para transformar consumo em estratégia energética.</p>
+            <div className="mt-8 border-t border-navy/20">
               {principles.map(([number, title, text]) => (
-                <div key={number} className="grid grid-cols-[42px_1fr] gap-4 border-b border-navy/20 py-6">
+                <div key={number} className="grid grid-cols-[42px_1fr] gap-4 border-b border-navy/20 py-4">
                   <span className="text-xs font-black text-[#00815f]">{number}</span>
                   <div><h3 className="font-black">{title}</h3><p className="mt-2 text-sm leading-6 text-ink-muted">{text}</p></div>
                 </div>
               ))}
             </div>
-            <a href={createWhatsAppUrl(buildGeneralWhatsAppMessage())} target="_blank" rel="noreferrer" className="mt-8 inline-flex w-fit items-center gap-2 border-b border-navy pb-1 text-sm font-black hover:border-[#00815f] hover:text-[#00815f]">Conversar com a equipe <ArrowUpRight aria-hidden className="h-4 w-4" /></a>
-            <dl className="mt-auto grid gap-4 border-t border-navy/20 pt-6 text-xs sm:grid-cols-2">
-              <div><dt className="font-bold uppercase tracking-[0.12em] text-[#6a7d8f]">Sede</dt><dd className="mt-2 font-bold">{company.location}</dd></div>
-              <div><dt className="font-bold uppercase tracking-[0.12em] text-[#6a7d8f]">Registro</dt><dd className="mt-2 font-bold">CNPJ {company.cnpj}</dd></div>
+            <a href={createWhatsAppUrl(buildGeneralWhatsAppMessage())} target="_blank" rel="noreferrer" className="mt-6 inline-flex w-fit items-center gap-2 border-b border-navy pb-1 text-sm font-black hover:border-solar-green hover:text-solar-green">Conversar com a equipe <ArrowUpRight aria-hidden className="h-4 w-4" /></a>
+            <dl className="mt-7 grid gap-4 border-t border-navy/20 pt-5 text-xs sm:grid-cols-2">
+              <div><dt className="font-bold uppercase tracking-[0.12em] text-[#52697c]">Sede</dt><dd className="mt-2 font-bold">{company.location}</dd></div>
+              <div><dt className="font-bold uppercase tracking-[0.12em] text-[#52697c]">Registro</dt><dd className="mt-2 font-bold">CNPJ {company.cnpj}</dd></div>
             </dl>
           </div>
         </div>
