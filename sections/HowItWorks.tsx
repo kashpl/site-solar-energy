@@ -1,69 +1,34 @@
-import {
-  BadgeCheck,
-  ClipboardList,
-  FileCheck2,
-  PlugZap,
-  Wrench
-} from "lucide-react";
-import { Section } from "@/components/Section";
+import { Container } from "@/components/Container";
 
 const steps = [
-  {
-    icon: ClipboardList,
-    title: "Análise de consumo",
-    text: "Leitura da conta e definição do cenário com melhor potencial de economia."
-  },
-  {
-    icon: BadgeCheck,
-    title: "Projeto personalizado",
-    text: "Dimensionamento compatível com imóvel, consumo e objetivo financeiro."
-  },
-  {
-    icon: FileCheck2,
-    title: "Homologação",
-    text: "Condução da documentação e aprovação junto à concessionária."
-  },
-  {
-    icon: Wrench,
-    title: "Instalação",
-    text: "Execução profissional com segurança e atenção aos detalhes técnicos."
-  },
-  {
-    icon: PlugZap,
-    title: "Geração e suporte",
-    text: "Ativação, acompanhamento e orientação para preservar a performance."
-  }
+  { title: "Análise de consumo", text: "Leitura da conta, entendimento da rotina e definição do cenário com melhor potencial." },
+  { title: "Projeto personalizado", text: "Dimensionamento compatível com imóvel, consumo, estrutura e objetivo financeiro." },
+  { title: "Homologação", text: "Documentação técnica e condução da aprovação junto à concessionária." },
+  { title: "Instalação", text: "Execução profissional, segurança elétrica e controle de qualidade em campo." },
+  { title: "Geração e suporte", text: "Ativação, orientação e acompanhamento para preservar a performance do sistema." }
 ];
 
 export function HowItWorks() {
   return (
-    <Section
-      id="como-funciona"
-      eyebrow="Processo integrado"
-      title="Uma jornada clara, sem etapas soltas."
-      subtitle="A Solar Energy coordena todo o projeto para que você tenha um ponto de contato e visibilidade do início à geração."
-      className="bg-[#f5f7fa]"
-      headingAlign="left"
-      tone="light"
-      compact
-    >
-      <div className="grid border-y border-[#d8e1ec] md:grid-cols-2 lg:grid-cols-5 lg:divide-x lg:divide-[#d8e1ec]">
-        {steps.map((step, index) => (
-          <article
-            key={step.title}
-            className="border-b border-[#d8e1ec] py-7 md:px-5 md:odd:border-r md:odd:pr-7 md:even:pl-7 lg:border-b-0 lg:border-r-0 lg:px-6 lg:first:pl-0 lg:last:pr-0"
-          >
-            <div className="flex items-center justify-between gap-4">
-              <step.icon aria-hidden className="h-6 w-6 text-[#00735c]" />
-              <span className="text-xs font-black tracking-[0.14em] text-[#8795a8]">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-            </div>
-            <h3 className="mt-8 text-lg font-black text-[#001a4d]">{step.title}</h3>
-            <p className="mt-3 text-sm leading-6 text-[#61728a]">{step.text}</p>
-          </article>
-        ))}
-      </div>
-    </Section>
+    <section id="como-funciona" className="bg-paper py-20 text-navy sm:py-24 lg:py-28">
+      <Container>
+        <div className="grid gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <p className="border-t border-navy/25 pt-6 text-xs font-black uppercase tracking-[0.18em] text-[#49647c]">04 / Método de entrega</p>
+            <h2 className="mt-7 max-w-lg text-4xl font-black leading-[1.02] tracking-[-0.04em] sm:text-5xl">Um processo claro, do consumo à geração.</h2>
+            <p className="mt-6 max-w-md text-base leading-8 text-ink-muted">Você acompanha um fluxo único, com responsabilidade clara desde a conta de energia até o sistema em operação.</p>
+          </div>
+          <ol className="border-t border-navy/25">
+            {steps.map((step, index) => (
+              <li key={step.title} className="group grid gap-5 border-b border-navy/20 py-7 sm:grid-cols-[68px_0.75fr_1.25fr] sm:items-start sm:gap-7 sm:py-8">
+                <span className="tabular-nums text-3xl font-black tracking-[-0.04em] text-[#9aa8b5] transition-colors group-hover:text-solar-blue">0{index + 1}</span>
+                <h3 className="text-xl font-black leading-tight">{step.title}</h3>
+                <p className="text-sm leading-7 text-ink-muted sm:text-base">{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Container>
+    </section>
   );
 }

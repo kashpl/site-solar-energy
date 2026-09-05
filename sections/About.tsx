@@ -1,96 +1,47 @@
 import Image from "next/image";
-import { ArrowUpRight, ClipboardCheck, HardHat, Route } from "lucide-react";
-import { Section } from "@/components/Section";
-import {
-  buildGeneralWhatsAppMessage,
-  createWhatsAppUrl
-} from "@/lib/whatsappFormatter";
+import { ArrowUpRight } from "lucide-react";
+import { Container } from "@/components/Container";
+import { company } from "@/data/company";
+import { buildGeneralWhatsAppMessage, createWhatsAppUrl } from "@/lib/whatsappFormatter";
 
-const differentials = [
-  {
-    icon: HardHat,
-    title: "Engenharia especializada",
-    text: "Critérios técnicos para eficiência, segurança elétrica e vida útil."
-  },
-  {
-    icon: Route,
-    title: "Projeto personalizado",
-    text: "Consumo, espaço disponível e objetivo real de economia."
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Acompanhamento completo",
-    text: "Estudo, homologação, instalação e suporte pós-entrega."
-  }
+const principles = [
+  ["01", "Critério técnico", "Eficiência, segurança elétrica e vida útil orientam cada decisão."],
+  ["02", "Projeto sob medida", "Consumo, espaço disponível e objetivo real de economia."],
+  ["03", "Responsabilidade ponta a ponta", "Estudo, homologação, instalação e suporte pós-entrega."]
 ];
 
 export function About() {
   return (
-    <Section
-      id="sobre"
-      eyebrow="Quem executa"
-      title="Engenharia próxima. Entrega responsável."
-      className="bg-[#00245f]"
-      headingAlign="left"
-    >
-      <div className="grid items-stretch gap-6 lg:grid-cols-[1.08fr_0.92fr]">
-        <div className="relative min-h-[430px] overflow-hidden rounded-[30px] sm:min-h-[560px]">
-          <Image
-            src="/images/optimized/639311282FIMI0026 (3).webp"
-            alt="Equipe técnica da Solar Energy em campo"
-            fill
-            sizes="(min-width: 1024px) 55vw, 100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#00245f]/80 via-transparent to-transparent" />
-          <div className="absolute bottom-6 left-6 right-6 max-w-md rounded-2xl border border-white/15 bg-[#00245f]/95 p-5 sm:bottom-8 sm:left-8">
-            <p className="text-xs font-black uppercase tracking-[0.16em] text-solar-green">
-              Equipe técnica em campo
-            </p>
-            <p className="mt-2 text-sm leading-6 text-gray-dark/75">
-              Instalação acompanhada, segurança operacional e atenção ao detalhe em cada
-              etapa.
-            </p>
+    <section id="sobre" className="bg-canvas py-20 text-navy sm:py-24 lg:py-28">
+      <Container>
+        <div className="grid gap-0 border border-navy/20 bg-paper lg:grid-cols-[1.12fr_0.88fr]">
+          <div className="relative min-h-[460px] overflow-hidden lg:min-h-[650px]">
+            <Image src="/images/optimized/639311282FIMI0026 (3).webp" alt="Equipe técnica da Solar Energy em campo" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/95 to-transparent px-6 pb-7 pt-28 text-white sm:px-9">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-green">Registro de campo</p>
+              <p className="mt-3 max-w-lg text-lg font-semibold leading-7">Instalação acompanhada, segurança operacional e atenção ao detalhe em cada etapa.</p>
+            </div>
           </div>
-        </div>
-
-        <div className="flex flex-col justify-between rounded-[30px] bg-[#00346f] p-7 sm:p-9 lg:p-10">
-          <div>
-            <p className="text-lg leading-8 text-gray-dark/90">
-              A Solar Energy Qualidade e Eficiência nasceu para transformar a forma como
-              pessoas e empresas consomem energia, unindo engenharia, atendimento próximo
-              e execução segura em projetos fotovoltaicos.
-            </p>
-            <p className="mt-5 text-base leading-7 text-gray-dark/65">
-              O compromisso é entregar energia limpa com clareza técnica, solução
-              personalizada e resultado financeiro compatível com cada realidade.
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <div className="divide-y divide-white/10 border-y border-white/10">
-              {differentials.map((item) => (
-                <div key={item.title} className="flex gap-4 py-5">
-                  <item.icon aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-solar-green" />
-                  <div>
-                    <h3 className="font-black text-white">{item.title}</h3>
-                    <p className="mt-1 text-sm leading-6 text-gray-dark/60">{item.text}</p>
-                  </div>
+          <div className="flex flex-col p-6 sm:p-9 lg:p-12 xl:p-14">
+            <p className="border-t border-navy/25 pt-6 text-xs font-black uppercase tracking-[0.18em] text-[#49647c]">05 / Quem executa</p>
+            <h2 className="mt-8 text-4xl font-black leading-[1.02] tracking-[-0.04em] sm:text-5xl">Engenharia próxima. Entrega responsável.</h2>
+            <p className="mt-7 text-base leading-8 text-ink-muted">A Solar Energy Qualidade e Eficiência une engenharia, atendimento próximo e execução segura para transformar consumo em estratégia energética.</p>
+            <div className="mt-10 border-t border-navy/20">
+              {principles.map(([number, title, text]) => (
+                <div key={number} className="grid grid-cols-[42px_1fr] gap-4 border-b border-navy/20 py-6">
+                  <span className="text-xs font-black text-[#00815f]">{number}</span>
+                  <div><h3 className="font-black">{title}</h3><p className="mt-2 text-sm leading-6 text-ink-muted">{text}</p></div>
                 </div>
               ))}
             </div>
-            <a
-              href={createWhatsAppUrl(buildGeneralWhatsAppMessage())}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-7 inline-flex items-center gap-2 text-sm font-extrabold text-solar-green transition hover:gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar-green"
-            >
-              Conhecer a solução ideal
-              <ArrowUpRight aria-hidden className="h-4 w-4" />
-            </a>
+            <a href={createWhatsAppUrl(buildGeneralWhatsAppMessage())} target="_blank" rel="noreferrer" className="mt-8 inline-flex w-fit items-center gap-2 border-b border-navy pb-1 text-sm font-black hover:border-[#00815f] hover:text-[#00815f]">Conversar com a equipe <ArrowUpRight aria-hidden className="h-4 w-4" /></a>
+            <dl className="mt-auto grid gap-4 border-t border-navy/20 pt-6 text-xs sm:grid-cols-2">
+              <div><dt className="font-bold uppercase tracking-[0.12em] text-[#6a7d8f]">Sede</dt><dd className="mt-2 font-bold">{company.location}</dd></div>
+              <div><dt className="font-bold uppercase tracking-[0.12em] text-[#6a7d8f]">Registro</dt><dd className="mt-2 font-bold">CNPJ {company.cnpj}</dd></div>
+            </dl>
           </div>
         </div>
-      </div>
-    </Section>
+      </Container>
+    </section>
   );
 }

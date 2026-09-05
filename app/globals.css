@@ -3,12 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --navy: #001a4d;
-  --solar-blue: #0052cc;
-  --solar-green: #00d084;
-  --solar-gold: #ffd700;
+  color-scheme: light;
+  --navy: #00142a;
+  --navy-deep: #020812;
+  --solar-blue: #1479d8;
+  --solar-green: #35b957;
+  --solar-green-strong: #249842;
+  --solar-gold: #e6b329;
+  --solar-orange: #f06a18;
   --silver-white: #f5f7fa;
   --gray-dark: #e8ecf1;
+  --canvas: #efede6;
+  --paper: #f8f6f0;
+  --ink-muted: #4d6070;
+  --line: #ced3d1;
+  --duration-fast: 120ms;
+  --duration-default: 200ms;
+  --duration-slow: 320ms;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 * {
@@ -18,15 +31,15 @@
 html {
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background: var(--navy);
+  background: var(--canvas);
 }
 
 body {
   min-height: 100vh;
   max-width: 100vw;
   overflow-x: hidden;
-  background: var(--navy);
-  color: var(--silver-white);
+  background: var(--canvas);
+  color: var(--navy);
   font-family: var(--font-body), "Segoe UI", Helvetica, Arial, sans-serif;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
@@ -49,7 +62,7 @@ footer {
 }
 
 ::selection {
-  background: var(--solar-green);
+  background: var(--solar-gold);
   color: var(--navy);
 }
 
@@ -62,49 +75,102 @@ a,
 input,
 select,
 textarea {
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgb(230 179 41 / 0.16);
   touch-action: manipulation;
+}
+
+button,
+a {
+  transition-duration: var(--duration-fast);
+  transition-timing-function: var(--ease-out);
+}
+
+button:active,
+a[role="button"]:active,
+.pressable:active {
+  transform: scale(0.98);
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.technical-grid {
+  background-image: none;
+}
+
+.technical-grid-dark {
+  background-image: none;
+}
+
+.brand-aurora {
+  background:
+    radial-gradient(ellipse at 74% 22%, rgb(230 179 41 / 0.14), transparent 29%),
+    radial-gradient(ellipse at 87% 75%, rgb(53 185 87 / 0.16), transparent 31%),
+    radial-gradient(ellipse at 28% 70%, rgb(20 121 216 / 0.2), transparent 36%),
+    #020812;
+}
+
+.brand-trails {
+  pointer-events: none;
+  opacity: 0.56;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 38%, #000 66%, #000 100%);
+  mask-image: linear-gradient(to right, transparent 0%, transparent 38%, #000 66%, #000 100%);
+}
+
+.brand-trail {
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  path-length: 1;
+  animation: brand-trail-draw 1100ms var(--ease-in-out) both;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.brand-trail-blue { color: var(--solar-blue); stroke: currentColor; animation-delay: 80ms; }
+.brand-trail-green { color: var(--solar-green); stroke: currentColor; animation-delay: 150ms; }
+.brand-trail-gold { color: var(--solar-gold); stroke: currentColor; animation-delay: 220ms; }
+.brand-trail-orange { color: var(--solar-orange); stroke: currentColor; animation-delay: 290ms; }
+
+.project-media-enter {
+  animation: project-media-enter 320ms var(--ease-in-out) both;
+}
+
+.project-tab {
+  transition: background-color var(--duration-default) ease;
+}
+
+.project-tab[aria-selected="true"] {
+  background: rgb(255 255 255 / 0.055);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
 }
 
 section[id] {
   scroll-margin-top: 5rem;
 }
 
-.hero-energy-path {
-  stroke-dasharray: 14 10;
-  animation: hero-energy-flow 11s linear infinite;
-}
-
-.hero-performance-line {
-  stroke-dasharray: 260;
-  stroke-dashoffset: 260;
-  animation: hero-performance-draw 1.4s ease-out 0.35s forwards;
-}
-
 .hero-intro-reveal {
-  animation: hero-intro-reveal 0.9s cubic-bezier(0.2, 0.75, 0.2, 1) both;
+  animation: hero-intro-reveal 0.72s var(--ease-out) both;
 }
 
 .hero-project-reveal {
-  animation: hero-project-reveal 1s cubic-bezier(0.2, 0.75, 0.2, 1) 0.18s both;
-}
-
-@keyframes hero-energy-flow {
-  to {
-    stroke-dashoffset: -240;
-  }
-}
-
-@keyframes hero-performance-draw {
-  to {
-    stroke-dashoffset: 0;
-  }
+  animation: hero-project-reveal 0.78s var(--ease-out) 0.12s both;
 }
 
 @keyframes hero-intro-reveal {
   from {
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(16px);
   }
 
   to {
@@ -116,13 +182,34 @@ section[id] {
 @keyframes hero-project-reveal {
   from {
     opacity: 0;
-    transform: translateX(28px);
+    transform: translateY(16px);
   }
 
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
+}
+
+@keyframes brand-trail-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes project-media-enter {
+  from {
+    opacity: 0.45;
+    clip-path: inset(0 8% 0 0);
+    transform: scale(1.012);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+    transform: scale(1);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-tab:hover { background: rgb(255 255 255 / 0.035); }
 }
 
 .privacy-copy a {

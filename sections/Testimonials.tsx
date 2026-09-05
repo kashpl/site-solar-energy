@@ -1,43 +1,31 @@
 import { Quote } from "lucide-react";
-import { Section } from "@/components/Section";
+import { Container } from "@/components/Container";
 import { testimonials } from "@/data/testimonials";
 
 export function Testimonials() {
   return (
-    <Section
-      eyebrow="Experiência do cliente"
-      title="Confiança construída em cada etapa."
-      subtitle="Relatos de clientes residenciais, empresariais e corporativos atendidos pela Solar Energy."
-      className="bg-[#f5f7fa]"
-      headingAlign="left"
-      tone="light"
-      compact
-    >
-      <div className="grid gap-5 lg:grid-cols-3">
-        {testimonials.map((testimonial, index) => (
-          <article
-            key={testimonial.name}
-            className="flex h-full flex-col rounded-[26px] border border-[#d8e1ec] bg-white p-6 sm:p-7"
-          >
-            <div className="flex items-center justify-between gap-4">
-              <Quote aria-hidden className="h-7 w-7 text-[#00735c]" />
-              <span className="text-xs font-black tracking-[0.14em] text-[#8795a8]">
-                0{index + 1}
-              </span>
-            </div>
-            <blockquote className="mt-8 flex-1 text-base font-semibold leading-7 text-[#203b59]">
-              “{testimonial.quote}”
-            </blockquote>
-            <div className="mt-8 border-t border-[#e0e7f0] pt-5">
-              <p className="font-black text-[#001a4d]">{testimonial.name}</p>
-              <p className="mt-1 text-sm text-[#61728a]">{testimonial.role}</p>
-              <p className="mt-3 text-xs font-black uppercase tracking-[0.12em] text-[#00735c]">
-                {testimonial.detail}
-              </p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </Section>
+    <section aria-label="Depoimentos de clientes" className="bg-[#ece9e1] py-20 text-navy sm:py-24 lg:py-28">
+      <Container>
+        <div className="grid gap-8 border-t border-navy/18 pt-6 lg:grid-cols-[.55fr_1.45fr] lg:gap-16">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-orange">06 / Clientes</p>
+            <Quote aria-hidden className="mt-8 h-10 w-10 text-solar-gold" strokeWidth={1.6} />
+          </div>
+          <div>
+            <blockquote className="max-w-5xl text-3xl font-black leading-[1.14] tracking-[-0.035em] sm:text-4xl lg:text-[2.9rem]">“{testimonials[0].quote}”</blockquote>
+            <div className="mt-7 flex flex-wrap gap-x-4 gap-y-1 text-sm"><strong>{testimonials[0].name}</strong><span className="text-ink-muted">{testimonials[0].detail}</span></div>
+          </div>
+        </div>
+        <div className="mt-12 grid gap-4 md:grid-cols-2">
+          {testimonials.slice(1).map((testimonial, index) => (
+            <figure key={testimonial.name} className="border border-navy/15 bg-paper p-7 sm:p-9">
+              <span aria-hidden className="block h-1 w-12" style={{ backgroundColor: index === 0 ? "#1479d8" : "#35b957" }} />
+              <blockquote className="mt-7 text-lg font-semibold leading-8">“{testimonial.quote}”</blockquote>
+              <figcaption className="mt-7 text-xs font-bold uppercase tracking-[0.1em] text-ink-muted">{testimonial.name} · {testimonial.detail}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </Container>
+    </section>
   );
 }

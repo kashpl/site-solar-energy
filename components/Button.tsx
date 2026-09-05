@@ -26,9 +26,9 @@ type NativeButtonProps = BaseProps &
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-solar-green text-navy shadow-[0_16px_42px_rgba(0,208,132,0.22)] hover:-translate-y-0.5 hover:bg-[#20e09a] hover:shadow-[0_20px_54px_rgba(0,208,132,0.32)] disabled:border disabled:border-white/[0.16] disabled:bg-white/[0.12] disabled:text-gray-dark/[0.7] disabled:shadow-none",
+    "border border-solar-gold bg-solar-gold text-[#07131e] hover:border-[#f1c84f] hover:bg-[#f1c84f] disabled:border-white/[0.16] disabled:bg-white/[0.12] disabled:text-gray-dark/[0.7]",
   secondary:
-    "border border-white/20 bg-[#06356f] text-white hover:-translate-y-0.5 hover:border-solar-green/60 hover:bg-[#0a4590] disabled:border-white/[0.16] disabled:bg-[#06356f] disabled:text-gray-dark/[0.7] disabled:shadow-none",
+    "border border-white/28 bg-transparent text-white hover:border-white hover:bg-white/[0.07] disabled:border-white/[0.16] disabled:text-gray-dark/[0.7]",
   ghost:
     "border border-transparent bg-transparent text-white hover:border-white/20 hover:bg-white/10",
   gold:
@@ -36,7 +36,7 @@ const variants: Record<ButtonVariant, string> = {
 };
 
 const baseClass =
-  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold tracking-[-0.01em] transition-[transform,background-color,border-color,box-shadow,color] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar-green disabled:pointer-events-none disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-70 sm:px-6";
+  "pressable inline-flex min-h-12 items-center justify-center gap-2 rounded-[4px] px-5 py-3 text-sm font-extrabold tracking-[0.01em] transition-[transform,background-color,border-color,color] duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar-green disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-70 sm:px-6";
 
 export function Button(props: LinkButtonProps | NativeButtonProps) {
   const {

@@ -11,12 +11,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: "#001a4d",
-        "solar-blue": "#0052cc",
-        "solar-green": "#00d084",
-        "solar-gold": "#ffd700",
+        navy: "#00142a",
+        "solar-blue": "#1479d8",
+        "solar-green": "#35b957",
+        "solar-gold": "#e6b329",
+        "solar-orange": "#f06a18",
         "silver-white": "#f5f7fa",
-        "gray-dark": "#e8ecf1"
+        "gray-dark": "#e8ecf1",
+        canvas: "#efede6",
+        paper: "#f8f6f0",
+        "ink-muted": "#4d6070",
+        line: "#ced3d1"
       },
       boxShadow: {
         glow: "0 0 36px rgba(0, 208, 132, 0.24)",

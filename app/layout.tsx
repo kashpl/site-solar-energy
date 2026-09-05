@@ -116,7 +116,7 @@ const localBusinessSchema = {
 
 export const viewport: Viewport = {
   themeColor: "#001a4d",
-  colorScheme: "dark"
+  colorScheme: "light"
 };
 
 export default function RootLayout({

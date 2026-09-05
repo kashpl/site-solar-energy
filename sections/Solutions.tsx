@@ -1,108 +1,78 @@
-import {
-  Activity,
-  ArrowUpRight,
-  Building2,
-  ClipboardCheck,
-  Factory,
-  Home,
-  SearchCheck
-} from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import type { LucideIcon } from "lucide-react";
-import { Section } from "@/components/Section";
+import { ArrowUpRight, Check } from "lucide-react";
+import { Container } from "@/components/Container";
 import { solutions } from "@/data/solutions";
 
-const iconMap: Record<string, LucideIcon> = {
-  home: Home,
-  building: Building2,
-  factory: Factory,
-  activity: Activity,
-  clipboard: ClipboardCheck,
-  search: SearchCheck
-};
+const primary = [
+  { ...solutions[0], href: "/solucoes/energia-solar-residencial-fortaleza", image: "/images/optimized/residencial.webp", code: "RES–01", detail: "Casas e condomínios", accent: "#35b957" },
+  { ...solutions[1], href: "/solucoes/energia-solar-empresarial-ceara", image: "/images/optimized/comercial.webp", code: "COM–02", detail: "Comércio e serviços", accent: "#1479d8" },
+  { ...solutions[2], href: "/solucoes/usinas-solares-nordeste", image: "/images/optimized/industrial-novo.webp", code: "IND–03", detail: "Indústria e geração", accent: "#f06a18" }
+];
+
+const technical = [
+  { ...solutions[3], href: "/solucoes/manutencao-sistema-fotovoltaico" },
+  { ...solutions[4], href: "/guias/homologacao-energia-solar" },
+  { ...solutions[5], href: "/#contato" }
+];
+
+function SolutionCard({ solution, index, large = false }: { solution: (typeof primary)[number]; index: number; large?: boolean }) {
+  return (
+    <article className={`group relative isolate overflow-hidden border border-navy/16 bg-navy ${large ? "min-h-[590px]" : "min-h-[286px]"}`}>
+      <Image src={solution.image} alt={solution.title} fill sizes={large ? "(min-width:1024px) 46vw, 100vw" : "(min-width:1024px) 40vw, 100vw"} className="object-cover transition-transform duration-300 [transition-timing-function:var(--ease-out)] group-hover:scale-[1.018]" />
+      <div className={`absolute inset-0 ${large ? "bg-[linear-gradient(180deg,rgba(2,8,18,.04),rgba(2,8,18,.12)_42%,rgba(2,8,18,.96))]" : "bg-[linear-gradient(90deg,rgba(2,8,18,.96),rgba(2,8,18,.68)_60%,rgba(2,8,18,.16))]"}`} />
+      <div className={`absolute inset-0 flex flex-col justify-between ${large ? "p-6 sm:p-8" : "p-6 sm:p-7"}`}>
+        <div className="flex items-center justify-between text-[0.65rem] font-black uppercase tracking-[0.16em] text-[#d7dde4]">
+          <span>0{index + 1} · {solution.detail}</span><span style={{ color: solution.accent }}>{solution.code}</span>
+        </div>
+        <div className={large ? "max-w-xl" : "max-w-[430px]"}>
+          <h3 className={`${large ? "text-4xl sm:text-5xl" : "text-3xl"} font-black leading-[1.02] tracking-[-0.04em] text-white`}>{solution.title}</h3>
+          <p className={`mt-4 ${large ? "max-w-lg" : "max-w-sm"} text-sm leading-6 text-[#d7dde4]`}>{solution.description}</p>
+          <Link href={solution.href} className="mt-6 inline-flex items-center gap-2 border-b border-white/35 pb-1 text-sm font-black text-white hover:border-solar-gold hover:text-solar-gold">Conhecer solução <ArrowUpRight aria-hidden className="h-4 w-4" /></Link>
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export function Solutions() {
-  const primarySolutions = solutions.slice(0, 3);
-  const technicalServices = solutions.slice(3);
-  const primaryHrefs = [
-    "/solucoes/energia-solar-residencial-fortaleza",
-    "/solucoes/energia-solar-empresarial-ceara",
-    "/solucoes/usinas-solares-nordeste"
-  ];
-  const technicalHrefs = [
-    "/solucoes/manutencao-sistema-fotovoltaico",
-    "/guias/homologacao-energia-solar",
-    "/#contato"
-  ];
-
   return (
-    <Section
-      id="solucoes"
-      eyebrow="Soluções por perfil"
-      title="Engenharia solar para diferentes escalas de consumo."
-      subtitle="A mesma disciplina técnica aplicada a residências, empresas e projetos de grande porte — do estudo inicial à operação."
-      className="bg-[#f5f7fa]"
-      headingAlign="left"
-      tone="light"
-    >
-      <div className="grid gap-5 lg:grid-cols-3">
-        {primarySolutions.map((solution, index) => {
-          const Icon = iconMap[solution.icon] ?? Home;
-
-          return (
-            <article
-              key={solution.title}
-              className="group flex min-h-[360px] flex-col rounded-[28px] bg-[#002964] p-7 text-white transition duration-300 hover:-translate-y-1 hover:bg-[#00439a] sm:p-8"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <span className="text-xs font-black uppercase tracking-[0.18em] text-solar-green">
-                  {String(index + 1).padStart(2, "0")} / {solution.tag}
-                </span>
-                <Icon aria-hidden className="h-7 w-7 text-solar-green" />
-              </div>
-              <div className="mt-auto pt-16">
-                <h3 className="max-w-xs text-3xl font-black leading-[1.05] tracking-[-0.045em]">
-                  {solution.title}
-                </h3>
-                <p className="mt-5 text-sm leading-7 text-gray-dark/75">
-                  {solution.description}
-                </p>
-                <Link
-                  href={primaryHrefs[index]}
-                  className="mt-7 inline-flex items-center gap-2 text-sm font-extrabold text-solar-green outline-none transition hover:gap-3 focus-visible:ring-2 focus-visible:ring-solar-green"
-                >
-                  Conhecer esta solução
-                  <ArrowUpRight aria-hidden className="h-4 w-4" />
-                </Link>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-
-      <div className="mt-5 grid overflow-hidden rounded-[28px] border border-[#d8e1ec] bg-white md:grid-cols-3 md:divide-x md:divide-[#d8e1ec]">
-        {technicalServices.map((service, index) => {
-          const Icon = iconMap[service.icon] ?? Activity;
-
-          return (
-            <div
-              key={service.title}
-              className="border-b border-[#d8e1ec] p-6 last:border-b-0 md:border-b-0 sm:p-7"
-            >
-              <Icon aria-hidden className="h-6 w-6 text-[#00735c]" />
-              <h3 className="mt-5 text-lg font-black text-[#001a4d]">{service.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-[#61728a]">{service.description}</p>
-              <Link
-                href={technicalHrefs[index]}
-                className="mt-5 inline-flex items-center gap-2 text-sm font-black text-[#00735c]"
-              >
-                Saiba mais
-                <ArrowUpRight aria-hidden className="h-4 w-4" />
-              </Link>
+    <section id="solucoes" className="bg-paper py-20 text-navy sm:py-24 lg:py-28">
+      <Container>
+        <div className="grid gap-8 border-t border-navy/18 pt-6 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-blue">01 / Soluções</p>
+            <p className="mt-5 max-w-xs text-sm leading-6 text-ink-muted">A tecnologia muda de escala. O método e o padrão de entrega permanecem.</p>
+          </div>
+          <div>
+            <h2 className="max-w-4xl text-4xl font-black leading-[0.98] tracking-[-0.045em] sm:text-5xl lg:text-[3.9rem]">Um projeto para cada realidade de consumo.</h2>
+            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-ink-muted">
+              {["Dimensionamento próprio", "Homologação", "Pós-entrega"].map((item) => <span key={item} className="flex items-center gap-2"><Check aria-hidden className="h-4 w-4 text-solar-green" />{item}</span>)}
             </div>
-          );
-        })}
-      </div>
-    </Section>
+          </div>
+        </div>
+
+        <div className="mt-12 grid gap-4 lg:grid-cols-[1.04fr_.96fr]">
+          <SolutionCard solution={primary[0]} index={0} large />
+          <div className="grid gap-4"><SolutionCard solution={primary[1]} index={1} /><SolutionCard solution={primary[2]} index={2} /></div>
+        </div>
+
+        <div className="mt-8 grid border-y border-navy/16 lg:grid-cols-[.55fr_1.45fr]">
+          <div className="py-6 lg:border-r lg:border-navy/16 lg:pr-8">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-orange">Camada técnica</p>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-ink-muted">Serviços para manter o sistema regularizado, seguro e produtivo.</p>
+          </div>
+          <div className="grid sm:grid-cols-3">
+            {technical.map((service, index) => (
+              <Link key={service.title} href={service.href} className="group border-t border-navy/16 p-5 sm:border-l sm:border-t-0 sm:p-6">
+                <span className="text-[0.65rem] font-black tracking-[0.14em] text-solar-blue">T–0{index + 1}</span>
+                <h3 className="mt-5 text-lg font-black leading-tight">{service.title}</h3>
+                <ArrowUpRight aria-hidden className="mt-7 h-5 w-5 text-solar-gold transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }

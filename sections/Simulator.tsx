@@ -19,7 +19,7 @@ import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/Button";
 import { CityAutocomplete } from "@/components/CityAutocomplete";
 import { Input, SelectInput } from "@/components/Input";
-import { Section } from "@/components/Section";
+import { Container } from "@/components/Container";
 import {
   calculateSolarSavings,
   type PropertyType,
@@ -213,23 +213,26 @@ export function Simulator() {
   };
 
   return (
-    <Section
-      id="simulador"
-      eyebrow="Simulação aberta"
-      title="Descubra o potencial da sua conta de energia."
-      subtitle="Preencha quatro informações e veja a estimativa na hora. Nome e WhatsApp só serão pedidos se você quiser avançar para uma análise técnica."
-      className="bg-solar-green"
-      headingAlign="left"
-      tone="light"
-    >
-      <div className="grid overflow-hidden rounded-[30px] bg-[#00245f] shadow-[0_30px_90px_rgba(0,26,77,0.22)] lg:grid-cols-[0.95fr_1.05fr]">
-        <form onSubmit={handleEstimate} className="border-b border-white/10 p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
+    <section id="simulador" className="brand-aurora py-20 text-white sm:py-24 lg:py-28">
+      <Container>
+        <div className="grid gap-8 border-t border-white/16 pt-6 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-gold">03 / Simulador</p>
+          <div>
+            <h2 className="max-w-4xl text-4xl font-black leading-[0.98] tracking-[-0.045em] sm:text-5xl lg:text-[3.9rem]">Descubra o potencial da sua conta de energia.</h2>
+            <p className="mt-6 max-w-2xl text-base leading-7 text-white/64 sm:text-lg">Informe quatro dados e veja uma estimativa inicial. Seus dados de contato só são pedidos se você decidir avançar.</p>
+          </div>
+        </div>
+
+        <div className="mt-12 border border-white/16 bg-[#07182b] shadow-[0_28px_80px_rgba(0,0,0,.34)] lg:mt-14">
+          <div className="grid border-b border-white/16 px-5 py-4 text-[0.68rem] font-bold uppercase tracking-[0.15em] text-white/55 sm:grid-cols-2 sm:px-7">
+            <span>Calculadora Solar Energy</span><span className="mt-2 text-solar-gold sm:mt-0 sm:text-right">Resultado imediato · sem cadastro</span>
+          </div>
+          <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
+        <form onSubmit={handleEstimate} className="border-b border-white/16 p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
           <div className="mb-7 flex items-center justify-between gap-4">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-green">
-                Etapa 1 · Estimativa
-              </p>
-              <h3 className="mt-2 text-2xl font-black text-white">Seu cenário atual</h3>
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-green">Entrada de dados</p>
+              <h3 className="mt-2 text-2xl font-black text-white">Cenário atual</h3>
             </div>
             <Calculator aria-hidden className="h-7 w-7 text-solar-green" />
           </div>
@@ -292,7 +295,7 @@ export function Simulator() {
           </p>
         </form>
 
-        <div className="p-6 sm:p-8 lg:p-10" aria-live="polite">
+        <div className="technical-grid-dark p-6 sm:p-8 lg:p-10" aria-live="polite">
           {result ? (
             <EstimateResult
               result={result}
@@ -308,8 +311,10 @@ export function Simulator() {
             <EstimatePreview />
           )}
         </div>
-      </div>
-    </Section>
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }
 
@@ -323,21 +328,15 @@ function EstimatePreview() {
 
   return (
     <div className="flex h-full min-h-[420px] flex-col justify-center">
-      <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-green">
-        Resultado instantâneo
-      </p>
-      <h3 className="mt-4 max-w-md text-3xl font-black leading-tight tracking-[-0.04em] text-white">
-        Sua estimativa aparecerá aqui, sem cadastro obrigatório.
-      </h3>
-      <p className="mt-4 max-w-lg text-sm leading-7 text-gray-dark/70">
-        Você terá uma visão inicial de investimento, economia, retorno e impacto
-        ambiental antes de decidir se quer falar com a equipe.
-      </p>
-      <div className="mt-9 grid grid-cols-2 gap-3">
-        {previews.map((item) => (
-          <div key={item.label} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+      <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-green">Saída calculada</p>
+      <h3 className="mt-4 max-w-lg text-3xl font-black leading-tight tracking-[-0.035em] text-white">Transformamos consumo em uma leitura financeira inicial.</h3>
+      <p className="mt-4 max-w-lg text-sm leading-7 text-white/62">O cálculo organiza os principais indicadores antes da conversa comercial.</p>
+      <div className="mt-9 border-t border-white/20">
+        {previews.map((item, index) => (
+          <div key={item.label} className="grid grid-cols-[42px_1fr_auto] items-center gap-4 border-b border-white/16 py-4">
             <item.icon aria-hidden className="h-5 w-5 text-solar-green" />
-            <p className="mt-4 text-sm font-bold text-gray-dark/75">{item.label}</p>
+            <p className="text-sm font-bold text-white/75">{item.label}</p>
+            <span className="text-[0.65rem] font-black tracking-[0.12em] text-white/35">R–0{index + 1}</span>
           </div>
         ))}
       </div>
@@ -411,7 +410,7 @@ function EstimateResult({
         </div>
       </div>
 
-      <div className="mt-7 grid grid-cols-2 gap-3">
+      <div className="mt-7 grid grid-cols-2 border-l border-t border-white/16">
         {metrics.map((metric) => (
           <ResultMetric key={metric.label} {...metric} />
         ))}
@@ -493,7 +492,7 @@ function ResultMetric({
   value: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+    <div className="border-b border-r border-white/16 p-4">
       <Icon aria-hidden className="h-5 w-5 text-solar-green" />
       <p className="mt-4 text-xs font-bold uppercase tracking-[0.1em] text-gray-dark/45">
         {label}

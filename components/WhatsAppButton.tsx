@@ -14,10 +14,8 @@ export function WhatsAppButton() {
       rel="noreferrer"
       aria-label="Falar pelo WhatsApp"
       title={`Falar com a ${company.shortName} pelo WhatsApp`}
-      className="group fixed bottom-5 right-5 z-[70] inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-[#25d366] text-white shadow-[0_18px_46px_rgba(37,211,102,0.38)] transition duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-[0_22px_58px_rgba(37,211,102,0.5)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar-gold sm:bottom-6 sm:right-6 sm:h-[60px] sm:w-[60px]"
+      className="group fixed bottom-5 right-5 z-[70] inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/25 bg-[#25d366] text-white shadow-[0_12px_28px_rgba(0,0,0,.24)] transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(0,0,0,.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar-gold sm:bottom-6 sm:right-6 sm:h-[60px] sm:w-[60px]"
     >
-      <span className="absolute inset-0 rounded-full bg-[#25d366]/35 animate-ping" />
-      <span className="absolute -inset-1 rounded-full bg-[#25d366]/20 blur-md transition group-hover:bg-[#25d366]/30" />
       <svg
         aria-hidden="true"
         viewBox="0 0 32 32"
