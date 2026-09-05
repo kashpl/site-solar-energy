@@ -39,11 +39,18 @@ export function buildContactWhatsAppMessage(data: {
   billValue: string;
   message: string;
 }) {
-  const userMessage = data.message.trim()
-    ? ` Mensagem: ${data.message.trim()}.`
-    : "";
+  const details = [
+    data.name.trim() ? `Meu nome é ${data.name.trim()}.` : "",
+    data.city.trim() ? `Sou de ${data.city.trim()}.` : "",
+    data.propertyType.trim() ? `O imóvel é ${data.propertyType.trim().toLowerCase()}.` : "",
+    data.billValue.trim() ? `A conta de energia é aproximadamente ${data.billValue.trim()}.` : "",
+    data.message.trim() ? `Mensagem: ${data.message.trim()}.` : ""
+  ].filter(Boolean);
 
-  return `Olá! Sou ${data.name}, de ${data.city}. Meu imóvel é ${data.propertyType}. Minha conta de energia é aproximadamente ${data.billValue}. Gostaria de uma análise gratuita para energia solar.${userMessage}`;
+  return [
+    "Olá! Gostaria de solicitar uma análise para energia solar.",
+    ...details
+  ].join(" ");
 }
 
 export function buildSimulatorWhatsAppMessage(data: {

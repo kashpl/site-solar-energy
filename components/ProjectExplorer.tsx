@@ -15,6 +15,7 @@ export function ProjectExplorer() {
   const active = projects[activeIndex];
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if ((event.target as HTMLElement).getAttribute("role") !== "tab") return;
     if (!["ArrowDown", "ArrowUp", "ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
     event.preventDefault();
     let next = activeIndex;
@@ -55,14 +56,20 @@ export function ProjectExplorer() {
         {projects.map((project, index) => {
           const selected = index === activeIndex;
           return (
-            <button key={project.slug} id={`${baseId}-tab-${index}`} type="button" role="tab" aria-selected={selected} aria-controls={`${baseId}-panel`} tabIndex={selected ? 0 : -1} onClick={() => setActiveIndex(index)} className="project-tab group relative grid min-h-[118px] w-full grid-cols-[36px_1fr_auto] items-center gap-4 border-b border-white/12 px-5 py-5 text-left last:border-b-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-solar-gold lg:min-h-0">
-              <span className="text-[0.65rem] font-black tracking-[0.14em] text-white/58">0{index + 1}</span>
-              <span>
-                <strong className={`block text-base font-black transition-colors ${selected ? "text-white" : "text-white/62 group-hover:text-white"}`}>{project.title}</strong>
-                <small className="mt-2 block text-xs text-white/42">{project.location}</small>
-              </span>
-              <span className="h-8 w-1 origin-bottom transition-transform duration-200" style={{ backgroundColor: accentColors[index], transform: selected ? "scaleY(1)" : "scaleY(.25)" }} />
-            </button>
+            <div key={project.slug} className="grid grid-cols-[1fr_78px] border-b border-white/12 last:border-b-0">
+              <button id={`${baseId}-tab-${index}`} type="button" role="tab" aria-selected={selected} aria-controls={`${baseId}-panel`} tabIndex={selected ? 0 : -1} onClick={() => setActiveIndex(index)} className="project-tab group relative grid min-h-[118px] w-full grid-cols-[36px_1fr_auto] items-center gap-4 px-5 py-5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-solar-gold lg:min-h-0">
+                <span className="text-[0.65rem] font-black tracking-[0.14em] text-white/58">0{index + 1}</span>
+                <span>
+                  <strong className={`block text-base font-black transition-colors ${selected ? "text-white" : "text-white/62 group-hover:text-white"}`}>{project.title}</strong>
+                  <small className="mt-2 block text-xs text-white/42">{project.location}</small>
+                </span>
+                <span className="h-8 w-1 origin-bottom transition-transform duration-200" style={{ backgroundColor: accentColors[index], transform: selected ? "scaleY(1)" : "scaleY(.25)" }} />
+              </button>
+              <Link href={`/projetos/${project.slug}`} aria-label={`Abrir estudo de caso: ${project.title}`} className="group flex items-center justify-center gap-1.5 border-l border-white/10 text-white/45 transition-[background-color,color] hover:bg-white/[0.06] hover:text-solar-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-solar-gold">
+                <span className="text-[0.58rem] font-black uppercase tracking-[0.1em]">Case</span>
+                <ArrowUpRight aria-hidden className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
           );
         })}
       </div>
