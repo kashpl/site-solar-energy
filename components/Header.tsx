@@ -90,6 +90,10 @@ export function Header() {
             : "border-transparent"
         )}
       >
+        <div
+          aria-hidden
+          className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-solar-blue via-solar-green to-solar-gold"
+        />
         <Container className="flex h-[76px] items-center justify-between gap-5">
           <a
             href={isHomePage ? "#inicio" : "/"}

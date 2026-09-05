@@ -1,10 +1,23 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { Archivo, Manrope } from "next/font/google";
 import { AnalyticsConsent } from "@/components/AnalyticsConsent";
 import { company } from "@/data/company";
 import "./globals.css";
 
 const siteUrl = company.siteUrl;
+
+const displayFont = Archivo({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap"
+});
+
+const bodyFont = Manrope({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap"
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -113,7 +126,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>
+      <body className={`${displayFont.variable} ${bodyFont.variable}`}>
+        <a
+          href="#conteudo-principal"
+          className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-md bg-white px-4 py-3 font-bold text-navy shadow-xl transition-transform focus:translate-y-0"
+        >
+          Pular para o conteúdo
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

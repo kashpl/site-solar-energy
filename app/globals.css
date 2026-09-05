@@ -27,10 +27,17 @@ body {
   overflow-x: hidden;
   background: var(--navy);
   color: var(--silver-white);
-  font-family: "Segoe UI Variable", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: var(--font-body), "Segoe UI", Helvetica, Arial, sans-serif;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display,
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), var(--font-body), sans-serif;
 }
 
 body,
@@ -56,13 +63,41 @@ input,
 select,
 textarea {
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+.hero-energy-path {
+  stroke-dasharray: 14 10;
+  animation: hero-energy-flow 11s linear infinite;
+}
+
+.hero-performance-line {
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+  animation: hero-performance-draw 1.4s ease-out 0.35s forwards;
+}
+
+@keyframes hero-energy-flow {
+  to {
+    stroke-dashoffset: -240;
+  }
+}
+
+@keyframes hero-performance-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 .privacy-copy a {
   color: var(--solar-green);
   font-weight: 700;
   text-decoration: underline;
-  text-decoration-color: rgb(184 240 74 / 0.4);
+  text-decoration-color: rgb(0 208 132 / 0.4);
   text-underline-offset: 0.25rem;
 }
 

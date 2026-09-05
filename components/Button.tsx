@@ -36,7 +36,7 @@ const variants: Record<ButtonVariant, string> = {
 };
 
 const baseClass =
-  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold tracking-[-0.01em] transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar-green disabled:pointer-events-none disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-70 sm:px-6";
+  "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-extrabold tracking-[-0.01em] transition-[transform,background-color,border-color,box-shadow,color] duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar-green disabled:pointer-events-none disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-70 sm:px-6";
 
 export function Button(props: LinkButtonProps | NativeButtonProps) {
   const {

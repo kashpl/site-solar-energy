@@ -139,7 +139,7 @@ const sections = [
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="min-h-screen bg-navy py-10 text-white sm:py-16">
+    <main id="conteudo-principal" className="min-h-screen bg-navy py-10 text-white sm:py-16">
       <Container className="max-w-4xl">
         <Link
           href="/"

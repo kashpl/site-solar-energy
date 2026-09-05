@@ -7,7 +7,7 @@ export function PageChrome({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main id="conteudo-principal">{children}</main>
       <Footer />
       <WhatsAppButton />
     </>
