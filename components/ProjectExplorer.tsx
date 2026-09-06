@@ -5,9 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { caseStudies } from "@/data/caseStudies";
+import { segmentThemes, type SegmentName } from "@/data/segments";
 
 const projects = [caseStudies[3], caseStudies[0], caseStudies[1], caseStudies[2]];
-const accentColors = ["#e6b329", "#35b957", "#1479d8", "#f06a18"];
+const accentColors = projects.map(
+  (project) => segmentThemes[project.category as SegmentName].color
+);
 
 export function ProjectExplorer() {
   const [activeIndex, setActiveIndex] = useState(0);

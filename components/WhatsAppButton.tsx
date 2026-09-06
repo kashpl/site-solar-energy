@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { company } from "@/data/company";
 import {
   buildFloatingWhatsAppMessage,
@@ -7,14 +8,71 @@ import {
 } from "@/lib/whatsappFormatter";
 
 export function WhatsAppButton() {
+  const [suppressedOnMobile, setSuppressedOnMobile] = useState(false);
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 639px)");
+    const legacyMediaQuery = mobileQuery as MediaQueryList & {
+      addListener: (listener: () => void) => void;
+      removeListener: (listener: () => void) => void;
+    };
+    const guardedSections = Array.from(
+      document.querySelectorAll<HTMLElement>("#simulador, #contato")
+    );
+    const visibleSections = new Set<Element>();
+    const addMediaListener = () => {
+      if ("addEventListener" in mobileQuery) mobileQuery.addEventListener("change", updateVisibility);
+      else legacyMediaQuery.addListener(updateVisibility);
+    };
+    const removeMediaListener = () => {
+      if ("removeEventListener" in mobileQuery) mobileQuery.removeEventListener("change", updateVisibility);
+      else legacyMediaQuery.removeListener(updateVisibility);
+    };
+
+    const updateVisibility = () => {
+      const focusInsideGuardedSection = Boolean(
+        document.activeElement?.closest("#simulador, #contato")
+      );
+      setSuppressedOnMobile(
+        mobileQuery.matches && (visibleSections.size > 0 || focusInsideGuardedSection)
+      );
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) visibleSections.add(entry.target);
+          else visibleSections.delete(entry.target);
+        });
+        updateVisibility();
+      },
+      { threshold: 0.12 }
+    );
+
+    guardedSections.forEach((section) => observer.observe(section));
+    document.addEventListener("focusin", updateVisibility);
+    document.addEventListener("focusout", updateVisibility);
+    addMediaListener();
+    updateVisibility();
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("focusin", updateVisibility);
+      document.removeEventListener("focusout", updateVisibility);
+      removeMediaListener();
+    };
+  }, []);
+
   return (
     <a
       href={createWhatsAppUrl(buildFloatingWhatsAppMessage())}
       target="_blank"
       rel="noreferrer"
       aria-label="Falar pelo WhatsApp"
+      aria-hidden={suppressedOnMobile || undefined}
+      tabIndex={suppressedOnMobile ? -1 : undefined}
       title={`Falar com a ${company.shortName} pelo WhatsApp`}
-      className="group fixed bottom-5 right-5 z-[70] inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/25 bg-[#25d366] text-white shadow-[0_12px_28px_rgba(0,0,0,.24)] transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(0,0,0,.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar-gold sm:bottom-6 sm:right-6 sm:h-[60px] sm:w-[60px]"
+      className={`group fixed bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] right-3 z-[70] inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-[#25d366] text-white shadow-[0_12px_28px_rgba(0,0,0,.24)] transition-[transform,box-shadow,opacity] duration-200 hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(0,0,0,.3)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-solar-gold sm:bottom-6 sm:right-6 sm:h-[60px] sm:w-[60px] ${suppressedOnMobile ? "pointer-events-none translate-x-[calc(100%+1rem)] opacity-0 sm:pointer-events-auto sm:translate-x-0 sm:opacity-100" : "opacity-90 sm:opacity-100"}`}
     >
       <svg
         aria-hidden="true"

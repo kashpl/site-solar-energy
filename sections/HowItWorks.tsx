@@ -10,7 +10,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="como-funciona" className="bg-paper py-20 text-navy sm:py-24 lg:py-28">
+    <section id="como-funciona" className="section-transition-light py-20 text-navy sm:py-24 lg:py-28">
       <Container>
         <div className="grid gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           <div data-reveal className="lg:sticky lg:top-28 lg:self-start">

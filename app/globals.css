@@ -117,6 +117,18 @@ p {
     #020812;
 }
 
+.section-transition-light {
+  background:
+    linear-gradient(180deg, #020812 0, rgb(248 246 240 / 0.74) 46px, var(--paper) 86px),
+    var(--paper);
+}
+
+.section-transition-dark {
+  background:
+    linear-gradient(180deg, var(--paper) 0, rgb(2 8 18 / 0.82) 46px, #020812 86px),
+    #020812;
+}
+
 .brand-trails {
   pointer-events: none;
   opacity: 0.68;

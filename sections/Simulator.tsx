@@ -286,7 +286,7 @@ export function Simulator() {
             />
           </div>
 
-          <Button type="submit" className="mt-7 w-full" showArrow>
+          <Button type="submit" variant="action" className="mt-7 w-full" showArrow>
             Calcular minha economia
           </Button>
           <p className="mt-4 text-xs leading-5 text-gray-dark/55">
@@ -332,11 +332,11 @@ function EstimatePreview() {
       <h3 className="mt-4 max-w-lg text-3xl font-black leading-tight tracking-[-0.035em] text-white">Transformamos consumo em uma leitura financeira inicial.</h3>
       <p className="mt-4 max-w-lg text-sm leading-7 text-white/62">O cálculo organiza os principais indicadores antes da conversa comercial.</p>
       <div className="mt-9 border-t border-white/20">
-        {previews.map((item, index) => (
+        {previews.map((item) => (
           <div key={item.label} className="grid grid-cols-[42px_1fr_auto] items-center gap-4 border-b border-white/16 py-4">
             <item.icon aria-hidden className="h-5 w-5 text-solar-green" />
             <p className="text-sm font-bold text-white/75">{item.label}</p>
-            <span className="text-[0.65rem] font-black tracking-[0.12em] text-white/58">R–0{index + 1}</span>
+            <span className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[0.62rem] font-black uppercase tracking-[0.08em] text-white/48">A calcular</span>
           </div>
         ))}
       </div>

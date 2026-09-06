@@ -12,7 +12,7 @@ const flow = [
 
 export function Contact() {
   return (
-    <section id="contato" className="bg-[#020812] py-20 text-white sm:py-24 lg:py-28">
+    <section id="contato" className="section-transition-dark py-20 text-white sm:py-24 lg:py-28">
       <Container>
         <div data-reveal className="grid gap-8 border-t border-white/16 pt-6 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
           <div>

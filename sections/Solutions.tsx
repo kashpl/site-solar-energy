@@ -2,12 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Container } from "@/components/Container";
+import { SegmentLegend } from "@/components/SegmentLegend";
 import { solutions } from "@/data/solutions";
+import { segmentThemes } from "@/data/segments";
 
 const primary = [
-  { ...solutions[0], href: "/solucoes/energia-solar-residencial-fortaleza", image: "/images/optimized/residencial.webp", code: "RES–01", detail: "Casas e condomínios", accent: "#35b957" },
-  { ...solutions[1], href: "/solucoes/energia-solar-empresarial-ceara", image: "/images/optimized/comercial.webp", code: "COM–02", detail: "Comércio e serviços", accent: "#1479d8" },
-  { ...solutions[2], href: "/solucoes/usinas-solares-nordeste", image: "/images/optimized/industrial-novo.webp", code: "IND–03", detail: "Indústria e geração", accent: "#f06a18" }
+  { ...solutions[0], href: "/solucoes/energia-solar-residencial-fortaleza", image: "/images/optimized/residencial.webp", code: "RES–01", detail: "Casas e condomínios", accent: segmentThemes.Residencial.color },
+  { ...solutions[1], href: "/solucoes/energia-solar-empresarial-ceara", image: "/images/optimized/comercial.webp", code: "COM–02", detail: "Comércio e serviços", accent: segmentThemes.Comercial.color },
+  { ...solutions[2], href: "/solucoes/usinas-solares-nordeste", image: "/images/optimized/industrial-novo.webp", code: "IND–03", detail: "Indústria e geração", accent: segmentThemes.Industrial.color }
 ];
 
 const technical = [
@@ -37,7 +39,7 @@ function SolutionCard({ solution, index, large = false }: { solution: (typeof pr
 
 export function Solutions() {
   return (
-    <section id="solucoes" className="bg-paper py-20 text-navy sm:py-24 lg:py-28">
+    <section id="solucoes" className="section-transition-light py-20 text-navy sm:py-24 lg:py-28">
       <Container>
         <div data-reveal className="grid gap-8 border-t border-navy/18 pt-6 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
           <div>
@@ -49,6 +51,7 @@ export function Solutions() {
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-ink-muted">
               {["Dimensionamento próprio", "Homologação", "Pós-entrega"].map((item) => <span key={item} className="flex items-center gap-2"><Check aria-hidden className="h-4 w-4 text-solar-green" />{item}</span>)}
             </div>
+            <SegmentLegend segments={["Residencial", "Comercial", "Industrial"]} className="mt-5" />
           </div>
         </div>
 

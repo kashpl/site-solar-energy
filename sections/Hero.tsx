@@ -55,19 +55,19 @@ export function Hero() {
             <div aria-hidden className="absolute -left-3 -top-3 h-24 w-24 rounded-tl-[30px] border-l border-t border-solar-blue/75" />
             <div aria-hidden className="absolute -bottom-3 -right-3 h-28 w-28 rounded-br-[30px] border-b border-r border-solar-gold/75" />
             <div className="interactive-card relative aspect-[0.82] overflow-hidden rounded-[26px] border border-white/18 bg-[#07182b] shadow-[0_30px_80px_rgba(0,0,0,.42)] sm:aspect-[1.22] sm:min-h-[430px]">
-              <Image src="/images/optimized/usina.webp" alt="Vista aérea de usina solar corporativa instalada pela Solar Energy" fill priority sizes="(min-width:1024px) 58vw, 100vw" className="object-cover object-[58%_48%]" />
+              <Image src="/images/optimized/industrial-novo.webp" alt="Vista aérea de projeto solar industrial instalado pela Solar Energy" fill priority sizes="(min-width:1024px) 58vw, 100vw" className="object-cover object-[50%_38%]" />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,8,18,.08),rgba(2,8,18,.18)_48%,rgba(2,8,18,.92))]" />
               <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/20 bg-[#020812]/80 px-3 py-2 text-[0.65rem] font-black uppercase tracking-[0.16em] backdrop-blur-md">
-                <span className="status-pulse h-2 w-2 rounded-full bg-solar-green text-solar-green shadow-[0_0_12px_rgba(53,185,87,.8)]" /> Projeto em destaque
+                <span className="status-pulse h-2 w-2 rounded-full bg-solar-orange text-solar-orange shadow-[0_0_12px_rgba(240,106,24,.8)]" /> Projeto em destaque
               </div>
               <div className="absolute inset-x-0 bottom-0 grid gap-5 border-t border-white/16 bg-[#020812]/82 p-5 backdrop-blur-md sm:grid-cols-[1fr_auto] sm:p-7">
                 <div>
-                  <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-solar-green">Usina Solar Corporativa</p>
-                  <p className="mt-2 flex items-center gap-2 text-sm text-white/66"><MapPin aria-hidden className="h-4 w-4 text-solar-gold" />Jaboatão dos Guararapes, PE</p>
+                  <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-solar-orange">Projeto Industrial</p>
+                  <p className="mt-2 flex items-center gap-2 text-sm text-white/66"><MapPin aria-hidden className="h-4 w-4 text-solar-gold" />Sobral, CE</p>
                 </div>
                 <div className="flex items-end justify-between gap-8 sm:block sm:text-right">
-                  <p className="tabular-nums text-4xl font-black leading-none">432 <span className="text-sm text-solar-gold">kWp</span></p>
-                  <Link href="/projetos/usina-solar-corporativa-jaboatao" className="mt-3 inline-flex items-center gap-2 text-xs font-black text-white hover:text-solar-gold">Ver projeto <ArrowUpRight aria-hidden className="h-4 w-4" /></Link>
+                  <p className="tabular-nums text-4xl font-black leading-none">250 <span className="text-sm text-solar-gold">kWp</span></p>
+                  <Link href="/projetos/projeto-industrial-sobral" className="mt-3 inline-flex items-center gap-2 text-xs font-black text-white hover:text-solar-gold">Ver projeto <ArrowUpRight aria-hidden className="h-4 w-4" /></Link>
                 </div>
               </div>
             </div>

@@ -4,7 +4,7 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "reac
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "gold";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "gold" | "action";
 
 type BaseProps = {
   children: ReactNode;
@@ -32,7 +32,9 @@ const variants: Record<ButtonVariant, string> = {
   ghost:
     "border border-transparent bg-transparent text-white hover:border-white/20 hover:bg-white/10",
   gold:
-    "border border-solar-gold/[0.45] bg-solar-gold/10 text-solar-gold shadow-[0_16px_44px_rgba(255,215,0,0.12)] hover:bg-solar-gold/[0.16] hover:shadow-[0_20px_54px_rgba(255,215,0,0.2)]"
+    "border border-solar-gold/[0.45] bg-solar-gold/10 text-solar-gold shadow-[0_16px_44px_rgba(255,215,0,0.12)] hover:bg-solar-gold/[0.16] hover:shadow-[0_20px_54px_rgba(255,215,0,0.2)]",
+  action:
+    "border border-solar-green bg-solar-green text-[#06131e] shadow-[0_12px_30px_rgba(53,185,87,.2)] hover:border-[#50ca6d] hover:bg-[#50ca6d] disabled:border-white/[0.16] disabled:bg-white/[0.12] disabled:text-gray-dark/[0.7]"
 };
 
 const baseClass =
