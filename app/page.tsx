@@ -4,7 +4,6 @@ import { SiteMotion } from "@/components/SiteMotion";
 import { About } from "@/sections/About";
 import { AuthorityNumbers } from "@/sections/AuthorityNumbers";
 import { Contact } from "@/sections/Contact";
-import { CTAFinal } from "@/sections/CTAFinal";
 import { Footer } from "@/sections/Footer";
 import { FAQ } from "@/sections/FAQ";
 import { Hero } from "@/sections/Hero";
@@ -30,7 +29,6 @@ export default function Home() {
         <Testimonials />
         <FAQ />
         <Contact />
-        <CTAFinal />
       </main>
       <Footer />
       <WhatsAppButton />

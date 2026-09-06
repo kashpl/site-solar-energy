@@ -12,7 +12,7 @@ const flow = [
 
 export function Contact() {
   return (
-    <section id="contato" className="section-transition-dark py-20 text-white sm:py-24 lg:py-28">
+    <section id="contato" className="section-transition-dark pb-16 pt-16 text-white sm:pb-20 sm:pt-20 lg:pb-24 lg:pt-24">
       <Container>
         <div data-reveal className="grid gap-8 border-t border-white/16 pt-6 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
           <div>
@@ -22,12 +22,12 @@ export function Contact() {
             </div>
           </div>
           <div>
-            <h2 className="max-w-4xl text-4xl font-black leading-[0.98] tracking-[-0.045em] sm:text-5xl lg:text-[3.9rem]">Simule primeiro. Avance quando o resultado fizer sentido.</h2>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-white/65 sm:text-lg">Sua estimativa nasce no simulador e segue com todos os dados para uma única conversa no WhatsApp.</p>
+            <h2 className="section-heading max-w-[820px] font-black">Simule primeiro. Avance quando o resultado fizer sentido.</h2>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-white/65">Sua estimativa nasce no simulador e segue com todos os dados para uma única conversa no WhatsApp.</p>
           </div>
         </div>
 
-        <div data-reveal className="mt-14 grid overflow-hidden rounded-[26px] border border-white/16 bg-[#001a4d] shadow-[0_30px_90px_rgba(0,0,0,.34)] lg:grid-cols-[1.15fr_.85fr] lg:mt-16">
+        <div data-reveal className="mt-10 grid overflow-hidden rounded-[20px] border border-white/14 bg-[#001a4d] shadow-[0_20px_64px_rgba(0,0,0,.24)] lg:grid-cols-[1.25fr_.75fr] lg:mt-12">
           <div className="p-6 sm:p-8 lg:p-10">
             <div className="flex items-center justify-between gap-5 border-b border-white/14 pb-6">
               <div>
@@ -55,21 +55,21 @@ export function Contact() {
 
           <aside className="border-t border-white/14 bg-[#07182b] p-6 sm:p-8 lg:border-l lg:border-t-0 lg:p-10">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-blue">Canais diretos</p>
-            <h3 className="mt-4 max-w-sm text-3xl font-black leading-tight tracking-[-0.035em]">Precisa falar com a equipe antes?</h3>
+            <h3 className="mt-4 max-w-sm text-2xl font-black leading-tight tracking-[-0.03em]">Precisa falar com a equipe antes?</h3>
             <p className="mt-4 text-sm leading-7 text-white/55">Use os canais abaixo para dúvidas técnicas ou comerciais. Para orçamento, o simulador organiza melhor o primeiro atendimento.</p>
 
-            <div className="mt-8 grid gap-3">
-              <a href={createWhatsAppUrl(buildGeneralWhatsAppMessage())} target="_blank" rel="noreferrer" className="group flex items-center gap-4 rounded-2xl border border-white/[0.09] bg-white/[0.035] p-4 transition-[background-color,border-color] hover:border-solar-green/35 hover:bg-white/[0.07]">
+            <div className="mt-8 border-t border-white/14">
+              <a href={createWhatsAppUrl(buildGeneralWhatsAppMessage())} target="_blank" rel="noreferrer" className="group flex items-center gap-4 border-b border-white/14 py-5 transition-colors hover:text-solar-green">
                 <MessageCircle aria-hidden className="h-5 w-5 shrink-0 text-solar-green" />
                 <span><small className="block text-[0.62rem] font-black uppercase tracking-[0.13em] text-white/42">WhatsApp</small><strong className="mt-1 block text-sm">{company.whatsapp}</strong></span>
                 <ArrowUpRight aria-hidden className="ml-auto h-4 w-4 text-white/35 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
-              <a href={`mailto:${company.email}`} className="group flex items-center gap-4 rounded-2xl border border-white/[0.09] bg-white/[0.035] p-4 transition-[background-color,border-color] hover:border-solar-gold/30 hover:bg-white/[0.07]">
+              <a href={`mailto:${company.email}`} className="group flex items-center gap-4 border-b border-white/14 py-5 transition-colors hover:text-solar-gold">
                 <Mail aria-hidden className="h-5 w-5 shrink-0 text-solar-gold" />
                 <span className="min-w-0"><small className="block text-[0.62rem] font-black uppercase tracking-[0.13em] text-white/42">E-mail</small><strong className="mt-1 block truncate text-sm">{company.email}</strong></span>
                 <ArrowUpRight aria-hidden className="ml-auto h-4 w-4 text-white/35 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
-              <a href={company.mapsUrl} target="_blank" rel="noreferrer" className="group flex items-start gap-4 rounded-2xl border border-white/[0.09] bg-white/[0.035] p-4 transition-[background-color,border-color] hover:border-solar-blue/35 hover:bg-white/[0.07]">
+              <a href={company.mapsUrl} target="_blank" rel="noreferrer" className="group flex items-start gap-4 border-b border-white/14 py-5 transition-colors hover:text-solar-blue">
                 <MapPin aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-solar-blue" />
                 <span><small className="block text-[0.62rem] font-black uppercase tracking-[0.13em] text-white/42">Endereço</small><strong className="mt-1 block text-sm leading-6">{company.address}</strong></span>
                 <ArrowUpRight aria-hidden className="ml-auto mt-0.5 h-4 w-4 shrink-0 text-white/35 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

@@ -4,7 +4,7 @@ import { testimonials } from "@/data/testimonials";
 
 export function Testimonials() {
   return (
-    <section aria-label="Depoimentos de clientes" className="bg-[#ece9e1] py-20 text-navy sm:py-24 lg:py-28">
+    <section aria-label="Depoimentos de clientes" className="bg-[#ece9e1] py-16 text-navy sm:py-20 lg:py-24">
       <Container>
         <div data-reveal className="grid gap-8 border-t border-navy/18 pt-6 lg:grid-cols-[.55fr_1.45fr] lg:gap-16">
           <div>
@@ -12,7 +12,7 @@ export function Testimonials() {
             <Quote aria-hidden className="mt-8 h-10 w-10 text-solar-gold" strokeWidth={1.6} />
           </div>
           <div>
-            <blockquote className="max-w-5xl text-3xl font-black leading-[1.14] tracking-[-0.035em] sm:text-4xl lg:text-[2.9rem]">“{testimonials[0].quote}”</blockquote>
+            <blockquote className="max-w-5xl text-2xl font-black leading-[1.18] tracking-[-0.03em] sm:text-3xl lg:text-[2.4rem]">“{testimonials[0].quote}”</blockquote>
             <div className="mt-7 flex flex-wrap gap-x-4 gap-y-1 text-sm"><strong>{testimonials[0].name}</strong><span className="text-ink-muted">{testimonials[0].detail}</span></div>
           </div>
         </div>

@@ -6,13 +6,13 @@ const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEn
 
 export function FAQ() {
   return (
-    <section id="duvidas" className="bg-paper py-20 text-navy sm:py-24 lg:py-32">
+    <section id="duvidas" className="bg-paper py-16 text-navy sm:py-20 lg:py-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }} />
       <Container>
         <div className="grid gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           <div data-reveal className="lg:sticky lg:top-28 lg:self-start">
             <p className="border-t border-navy/25 pt-6 text-xs font-black uppercase tracking-[0.18em] text-[#49647c]">07 / Critérios de decisão</p>
-            <h2 className="mt-8 text-4xl font-black leading-[1.02] tracking-[-0.04em] sm:text-5xl">Perguntas que precisam de respostas objetivas.</h2>
+            <h2 className="section-heading-compact mt-8 font-black">Perguntas que precisam de respostas objetivas.</h2>
             <p className="mt-6 max-w-md text-base leading-8 text-ink-muted">Economia, potência, homologação e manutenção explicadas sem atalhos comerciais.</p>
           </div>
           <div data-reveal className="overflow-hidden rounded-[22px] border border-navy/20 bg-white/30 shadow-[0_16px_50px_rgba(0,20,42,.06)]">

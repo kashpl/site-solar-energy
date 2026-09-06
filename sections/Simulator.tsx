@@ -213,12 +213,12 @@ export function Simulator() {
   };
 
   return (
-    <section id="simulador" className="brand-aurora py-20 text-white sm:py-24 lg:py-28">
+    <section id="simulador" className="brand-aurora py-16 text-white sm:py-20 lg:py-24">
       <Container>
         <div data-reveal className="grid gap-8 border-t border-white/16 pt-6 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-solar-gold">03 / Simulador</p>
           <div>
-            <h2 className="max-w-4xl text-4xl font-black leading-[0.98] tracking-[-0.045em] sm:text-5xl lg:text-[3.9rem]">Descubra o potencial da sua conta de energia.</h2>
+            <h2 className="section-heading max-w-4xl font-black">Descubra o potencial da sua conta de energia.</h2>
             <p className="mt-6 max-w-2xl text-base leading-7 text-white/64 sm:text-lg">Informe quatro dados e veja uma estimativa inicial. Seus dados de contato só são pedidos se você decidir avançar.</p>
           </div>
         </div>

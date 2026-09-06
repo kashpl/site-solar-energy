@@ -10,12 +10,12 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="como-funciona" className="section-transition-light py-20 text-navy sm:py-24 lg:py-28">
+    <section id="como-funciona" className="section-transition-light py-16 text-navy sm:py-20 lg:py-24">
       <Container>
         <div className="grid gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           <div data-reveal className="lg:sticky lg:top-28 lg:self-start">
             <p className="border-t border-navy/25 pt-6 text-xs font-black uppercase tracking-[0.18em] text-[#49647c]">04 / Método de entrega</p>
-            <h2 className="mt-7 max-w-lg text-4xl font-black leading-[1.02] tracking-[-0.04em] sm:text-5xl">Um processo claro, do consumo à geração.</h2>
+            <h2 className="section-heading-compact mt-7 max-w-lg font-black">Um processo claro, do consumo à geração.</h2>
             <p className="mt-6 max-w-md text-base leading-8 text-ink-muted">Você acompanha um fluxo único, com responsabilidade clara desde a conta de energia até o sistema em operação.</p>
           </div>
           <ol className="border-t border-navy/25">

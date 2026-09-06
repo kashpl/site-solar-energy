@@ -12,7 +12,7 @@ const principles = [
 
 export function About() {
   return (
-    <section id="sobre" className="bg-canvas py-20 text-navy sm:py-24 lg:py-28">
+    <section id="sobre" className="bg-canvas py-16 text-navy sm:py-20 lg:py-24">
       <Container>
         <div data-reveal className="interactive-card grid gap-0 overflow-hidden rounded-[26px] border border-navy/20 bg-paper shadow-[0_22px_70px_rgba(0,20,42,.1)] lg:grid-cols-[0.92fr_1.08fr]">
           <div className="relative min-h-[360px] overflow-hidden sm:min-h-[420px] lg:m-8 lg:h-[470px] lg:min-h-0 lg:self-center lg:rounded-[18px] xl:m-10">
@@ -24,7 +24,7 @@ export function About() {
           </div>
           <div className="flex flex-col p-6 sm:p-9 lg:p-10 xl:p-12">
             <p className="border-t border-navy/25 pt-6 text-xs font-black uppercase tracking-[0.18em] text-[#49647c]">05 / Quem executa</p>
-            <h2 className="mt-7 text-4xl font-black leading-[1.02] tracking-[-0.04em] sm:text-[2.8rem]">Engenharia próxima. Entrega responsável.</h2>
+            <h2 className="section-heading-compact mt-7 font-black">Engenharia próxima. Entrega responsável.</h2>
             <p className="mt-6 text-base leading-7 text-ink-muted">A Solar Energy Qualidade e Eficiência une engenharia, atendimento próximo e execução segura para transformar consumo em estratégia energética.</p>
             <div className="mt-8 border-t border-navy/20">
               {principles.map(([number, title, text]) => (

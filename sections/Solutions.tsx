@@ -28,7 +28,7 @@ function SolutionCard({ solution, index, large = false }: { solution: (typeof pr
           <span>0{index + 1} · {solution.detail}</span><span style={{ color: solution.accent }}>{solution.code}</span>
         </div>
         <div className={large ? "max-w-xl" : "max-w-[430px]"}>
-          <h3 className={`${large ? "text-4xl sm:text-5xl" : "text-3xl"} font-black leading-[1.02] tracking-[-0.04em] text-white`}>{solution.title}</h3>
+          <h3 className={`${large ? "text-3xl sm:text-4xl" : "text-2xl sm:text-3xl"} font-black leading-[1.04] tracking-[-0.035em] text-white`}>{solution.title}</h3>
           <p className={`mt-4 ${large ? "max-w-lg" : "max-w-sm"} text-sm leading-6 text-[#d7dde4]`}>{solution.description}</p>
           <Link href={solution.href} className="mt-6 inline-flex items-center gap-2 border-b border-white/35 pb-1 text-sm font-black text-white hover:border-solar-gold hover:text-solar-gold">Conhecer solução <ArrowUpRight aria-hidden className="h-4 w-4" /></Link>
         </div>
@@ -39,7 +39,7 @@ function SolutionCard({ solution, index, large = false }: { solution: (typeof pr
 
 export function Solutions() {
   return (
-    <section id="solucoes" className="section-transition-light py-20 text-navy sm:py-24 lg:py-28">
+    <section id="solucoes" className="section-transition-light py-16 text-navy sm:py-20 lg:py-24">
       <Container>
         <div data-reveal className="grid gap-8 border-t border-navy/18 pt-6 lg:grid-cols-[0.55fr_1.45fr] lg:gap-16">
           <div>
@@ -47,7 +47,7 @@ export function Solutions() {
             <p className="mt-5 max-w-xs text-sm leading-6 text-ink-muted">A tecnologia muda de escala. O método e o padrão de entrega permanecem.</p>
           </div>
           <div>
-            <h2 className="max-w-4xl text-4xl font-black leading-[0.98] tracking-[-0.045em] sm:text-5xl lg:text-[3.9rem]">Um projeto para cada realidade de consumo.</h2>
+            <h2 className="section-heading max-w-4xl font-black">Um projeto para cada realidade de consumo.</h2>
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-ink-muted">
               {["Dimensionamento próprio", "Homologação", "Pós-entrega"].map((item) => <span key={item} className="flex items-center gap-2"><Check aria-hidden className="h-4 w-4 text-solar-green" />{item}</span>)}
             </div>

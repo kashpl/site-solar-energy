@@ -101,6 +101,24 @@ p {
   text-wrap: pretty;
 }
 
+.display-heading {
+  font-size: clamp(2.85rem, 4.6vw, 4.55rem);
+  line-height: 0.96;
+  letter-spacing: -0.052em;
+}
+
+.section-heading {
+  font-size: clamp(2.15rem, 3.15vw, 3.25rem);
+  line-height: 1.01;
+  letter-spacing: -0.043em;
+}
+
+.section-heading-compact {
+  font-size: clamp(2rem, 2.7vw, 2.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.038em;
+}
+
 .technical-grid {
   background-image: none;
 }
